@@ -9,8 +9,11 @@
     "start": "webpack-dev-server --mode development"
   },
   "dependencies": {
+    "@cutelab/nestup": "^0.4.6",
+    "codemirror": "^5.59.0",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "tone": "^14.7.58"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",

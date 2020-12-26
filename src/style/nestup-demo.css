@@ -1,0 +1,40 @@
+.vertical-align {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+.nestup-demo-root {
+    display: flex;
+    justify-content: center;
+}
+
+.nestup-drum {
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+}
+
+.CodeMirror {
+    background-color: gray;
+    border-radius: 4px;
+    border-color: lightgray;
+    color: whitesmoke;
+    font-size: 16px;
+}
+
+.code-container {
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.root {
+    background-color: #222232;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
