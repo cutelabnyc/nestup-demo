@@ -3,6 +3,7 @@ import { CodeArea } from "./CodeArea";
 import { RhythmParser, Nestup } from "@cutelab/nestup/dist/nestup.bundle";
 import { Sequencer } from "./Sequencer";
 import { AudioManagerContext } from "../contexts/audio";
+import { Visualizer } from "./Visualizer";
 
 export const NestupDrum = ({ note, sampler }) => {
 
@@ -28,6 +29,7 @@ export const NestupDrum = ({ note, sampler }) => {
                 {value => (
                     <>
                         <CodeArea name="nestup" onSubmit={ handleSubmission } audioManager={value} />
+                        <Visualizer nestup={nestup} />
                         <Sequencer 
                             sampler={sampler} 
                             note={note}
