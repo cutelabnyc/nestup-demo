@@ -17,6 +17,9 @@ module.exports = function(_env, argv) {
       filename: "assets/js/[name].[contenthash:8].js",
       publicPath: "/"
     },
+    node: {
+      fs: "empty"
+    },
     module: {
       rules: [
         {
