@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import CodeMirror from "codemirror/lib/codemirror";
 import "codemirror/lib/codemirror.css"
 import { useEffect, useRef } from "react";
 
-export const CodeArea = ({ name, onSubmit, audioManager }) => {
+export const CodeArea = ({ name, onSubmit, audioManager, dispatch, index, initialText }) => {
 
     const textAreaRef = useRef(null);
+    const [codeMirror, setCodeMirror] = useState(null);
 
     useEffect(
         () => {
@@ -25,7 +26,26 @@ export const CodeArea = ({ name, onSubmit, audioManager }) => {
                 }
             });
 
+            myCodeMirror.on("change", (_instance, _changeObj) => {
+
+                dispatch({
+                    type: "set_text",
+                    index: index,
+                    text: myCodeMirror.getValue()
+                });
+            });
+
+            setCodeMirror(myCodeMirror);
+
         }, []
+    );
+
+    useEffect(
+        () => {
+            if (codeMirror && initialText) {
+                codeMirror.setValue(initialText);
+            }
+        }, [codeMirror, initialText]
     );
 
     return (

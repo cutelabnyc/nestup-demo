@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { NestupDrum } from "./components/NestupDrum";
 import "./style/nestup-demo.css";
+import { SharableContext } from "./contexts/sharable";
+import { ShareButton } from "./components/ShareButton";
 
 // kick - C2
 // snare - C#2
 // hihat - D2
 // cowbell - D#2 
 
-export const App = ({ audioManager }) => {
+export const App = ({ audioManager, initialState }) => {
 
     const [sampler, setSampler] = useState(null);
 
@@ -32,12 +34,15 @@ export const App = ({ audioManager }) => {
         <div className="vertical-align">
             <div className="nestup-demo-root">
                 <div className="code-container">
-                    <NestupDrum note={"C2"} sampler={sampler} />
-                    <NestupDrum note={"C#2"} sampler={sampler} />
-                    <NestupDrum note={"D2"} sampler={sampler} />
-                    <NestupDrum note={"D#2"} sampler={sampler} />
+                    <NestupDrum note={"C2"} sampler={sampler} index={0} initialState={initialState} />
+                    <NestupDrum note={"C#2"} sampler={sampler} index={1} initialState={initialState} />
+                    <NestupDrum note={"D2"} sampler={sampler} index={2} initialState={initialState} />
+                    <NestupDrum note={"D#2"} sampler={sampler} index={3} initialState={initialState} />
                 </div>
             </div>
+            <SharableContext.Consumer>
+                { ({ state }) => <ShareButton state={state} /> }
+            </SharableContext.Consumer>
         </div>
     );
 };
