@@ -32,10 +32,10 @@ export const App = ({ audioManager }) => {
         <div className="vertical-align">
             <div className="nestup-demo-root">
                 <div className="code-container">
-                    <NestupDrum note={"C2"} sampler={sampler} />
-                    <NestupDrum note={"C#2"} sampler={sampler} />
-                    <NestupDrum note={"D2"} sampler={sampler} />
-                    <NestupDrum note={"D#2"} sampler={sampler} />
+                    <NestupDrum note={"C2"} sampler={sampler} index={0} />
+                    <NestupDrum note={"C#2"} sampler={sampler} index={1} />
+                    <NestupDrum note={"D2"} sampler={sampler} index={2} />
+                    <NestupDrum note={"D#2"} sampler={sampler} index={3} />
                 </div>
             </div>
         </div>
