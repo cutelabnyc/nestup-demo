@@ -32,9 +32,14 @@
 }
 
 .code-container {
-    width: 900px;
+    width: 840px;
     display: flex;
     flex-wrap: wrap;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
 }
 
 .root {

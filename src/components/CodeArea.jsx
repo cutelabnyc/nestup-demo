@@ -42,7 +42,7 @@ export const CodeArea = ({ name, onSubmit, audioManager, dispatch, index, initia
 
     useEffect(
         () => {
-            if (codeMirror) {
+            if (codeMirror && initialText) {
                 codeMirror.setValue(initialText);
             }
         }, [codeMirror, initialText]

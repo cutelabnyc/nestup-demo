@@ -6,7 +6,7 @@ import { AudioManagerContext } from "../contexts/audio";
 import { SharableContext } from "../contexts/sharable"
 import { Visualizer } from "./Visualizer";
 
-export const NestupDrum = ({ note, sampler, index }) => {
+export const NestupDrum = ({ note, sampler, index, initialState }) => {
 
     const [nestup, setNestup] = useState(null);
 
@@ -24,6 +24,14 @@ export const NestupDrum = ({ note, sampler, index }) => {
         }
     };
 
+    let initialText = "";
+
+    if (initialState && initialState.sequences && initialState.sequences[index] && initialState.sequences[index].text) {
+        if (initialState.sequences[index].text.length) {
+            initialText = `${initialState.sequences[index].text}`;
+        }
+    }
+
     return (
         <div className="nestup-drum">
             <AudioManagerContext.Consumer>
@@ -38,7 +46,7 @@ export const NestupDrum = ({ note, sampler, index }) => {
                                     state={state} 
                                     dispatch={dispatch} 
                                     index={index}
-                                    initialText={""} 
+                                    initialText={initialText} 
                                 />
                             }
                         </SharableContext.Consumer>

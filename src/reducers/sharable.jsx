@@ -16,7 +16,6 @@ export function sharableReducer(state, action) {
             const newSequences = state.sequences.slice();
             newSequences[index] = Object.assign({}, newSequences[index], { text });
             const newState = Object.assign({}, state, { sequences: newSequences });
-            console.log(newState);
 
             return newState;
 
