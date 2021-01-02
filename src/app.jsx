@@ -3,6 +3,7 @@ import { NestupDrum } from "./components/NestupDrum";
 import "./style/nestup-demo.css";
 import { SharableContext } from "./contexts/sharable";
 import { ShareButton } from "./components/ShareButton";
+import { ExportButton } from "./components/ExportButton";
 
 // kick - C2
 // snare - C#2
@@ -18,10 +19,10 @@ export const App = ({ audioManager, initialState }) => {
 
             const nextSampler = new audioManager.tone.Sampler({
                 urls: {
-                    C2: "https://freesound.org/data/previews/248/248142_3667999-lq.mp3",
-                    ["C#2"]: "https://freesound.org/data/previews/387/387186_7255534-lq.mp3",
-                    ["D2"]: "https://freesound.org/data/previews/397/397042_4357738-lq.mp3",
-                    ["D#2"]: "https://freesound.org/data/previews/99/99766_29308-lq.mp3"
+                    C1: "https://freesound.org/data/previews/248/248142_3667999-lq.mp3",
+                    ["D1"]: "https://freesound.org/data/previews/387/387186_7255534-lq.mp3",
+                    ["F#1"]: "https://freesound.org/data/previews/397/397042_4357738-lq.mp3",
+                    ["D2"]: "https://freesound.org/data/previews/99/99766_29308-lq.mp3"
                 }
             }).toDestination();
 
@@ -34,14 +35,18 @@ export const App = ({ audioManager, initialState }) => {
         <div className="vertical-align">
             <div className="nestup-demo-root">
                 <div className="code-container">
-                    <NestupDrum note={"C2"} sampler={sampler} index={0} initialState={initialState} />
-                    <NestupDrum note={"C#2"} sampler={sampler} index={1} initialState={initialState} />
-                    <NestupDrum note={"D2"} sampler={sampler} index={2} initialState={initialState} />
-                    <NestupDrum note={"D#2"} sampler={sampler} index={3} initialState={initialState} />
+                    <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={initialState} />
+                    <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={initialState} />
+                    <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={initialState} />
+                    <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={initialState} />
                 </div>
             </div>
             <SharableContext.Consumer>
-                { ({ state }) => <ShareButton state={state} /> }
+                { ({ state }) => 
+                    <div className="footer">
+                        <ShareButton state={state} />
+                        <ExportButton state={state} />
+                    </div> }
             </SharableContext.Consumer>
         </div>
     );

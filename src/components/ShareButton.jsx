@@ -1,5 +1,4 @@
 import React from "react";
-import url from "url";
 
 export const ShareButton = ({ state }) => {
 
@@ -11,5 +10,5 @@ export const ShareButton = ({ state }) => {
         window.location = currentLocation.href;
     }
 
-    return <div className="footer"><button className="share-button" onClick={handleClick}>Share</button></div>
+    return <button className="share-button" onClick={handleClick}>Share</button>;
 }
