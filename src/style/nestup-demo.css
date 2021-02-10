@@ -50,3 +50,16 @@ body {
     margin: 0;
     padding: 0;
 }
+
+* {
+    box-sizing: border-box;
+}
+  
+#page-wrap {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+a {
+    color: orange;
+}

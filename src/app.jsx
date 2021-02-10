@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { NestupDrum } from "./components/NestupDrum";
 import "./style/nestup-demo.css";
+import "./style/sidebar.css";
 import { SharableContext } from "./contexts/sharable";
 import { ShareButton } from "./components/ShareButton";
 import { ExportButton } from "./components/ExportButton";
+import Sidebar from './components/Sidebar';
 
 // kick - C2
 // snare - C#2
@@ -32,22 +34,27 @@ export const App = ({ audioManager, initialState }) => {
     }, []);
 
     return (
-        <div className="vertical-align">
-            <div className="nestup-demo-root">
-                <div className="code-container">
-                    <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={initialState} />
-                    <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={initialState} />
-                    <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={initialState} />
-                    <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={initialState} />
+        <div className="App" id="outer-container">
+            <Sidebar pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
+            <div id="page-wrap">
+                <div className="vertical-align">
+                    <div className="nestup-demo-root">
+                        <div className="code-container">
+                            <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={initialState} />
+                            <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={initialState} />
+                            <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={initialState} />
+                            <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={initialState} />
+                        </div>
+                    </div>
+                    <SharableContext.Consumer>
+                        { ({ state }) => 
+                            <div className="footer">
+                                <ShareButton state={state} />
+                                <ExportButton state={state} />
+                            </div> }
+                    </SharableContext.Consumer>
                 </div>
             </div>
-            <SharableContext.Consumer>
-                { ({ state }) => 
-                    <div className="footer">
-                        <ShareButton state={state} />
-                        <ExportButton state={state} />
-                    </div> }
-            </SharableContext.Consumer>
         </div>
     );
 };
