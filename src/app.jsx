@@ -6,6 +6,9 @@ import { SharableContext } from "./contexts/sharable";
 import { ShareButton } from "./components/ShareButton";
 import { ExportButton } from "./components/ExportButton";
 import Sidebar from './components/Sidebar';
+import { PatternPicker } from "./components/PatternPicker";
+import { patterns } from "./data/patterns";
+import { AudioManagerContext } from "./contexts/audio";
 
 // kick - C2
 // snare - C#2
@@ -15,6 +18,13 @@ import Sidebar from './components/Sidebar';
 export const App = ({ audioManager, initialState }) => {
 
     const [sampler, setSampler] = useState(null);
+    const [appPatterns, setPatterns] = useState(initialState);
+
+    const onPick = (pattern) => {
+        setPatterns({
+            sequences: pattern.map(p => { return { text: p }})
+        });
+    };
 
     useEffect(() => {
         const createSampler = async () => {
@@ -40,10 +50,10 @@ export const App = ({ audioManager, initialState }) => {
                 <div className="vertical-align">
                     <div className="nestup-demo-root">
                         <div className="code-container">
-                            <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={initialState} />
-                            <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={initialState} />
-                            <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={initialState} />
-                            <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={initialState} />
+                            <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={appPatterns} />
+                            <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={appPatterns} />
+                            <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={appPatterns} />
+                            <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={appPatterns} />
                         </div>
                     </div>
                     <SharableContext.Consumer>
@@ -54,6 +64,12 @@ export const App = ({ audioManager, initialState }) => {
                             </div> }
                     </SharableContext.Consumer>
                 </div>
+
+                <AudioManagerContext.Consumer>
+                    {value => (
+                        <PatternPicker patterns={patterns} onPick={onPick} audioManager={ value } />
+                    )}
+                </AudioManagerContext.Consumer>
             </div>
         </div>
     );

@@ -63,3 +63,26 @@ body {
 a {
     color: orange;
 }
+
+.columns {
+    display: flex;
+}
+
+.picker {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+.pattern-elt {
+    width: 100%;
+    padding-top: 5px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.pattern-elt:hover {
+    color: #ffffff;
+}

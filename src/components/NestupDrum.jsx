@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CodeArea } from "./CodeArea";
 import { RhythmParser, Nestup } from "@cutelab/nestup/dist/nestup.bundle";
 import { Sequencer } from "./Sequencer";
@@ -23,6 +23,19 @@ export const NestupDrum = ({ note, sampler, index, initialState }) => {
             // throw new ParseError(e);
         }
     };
+
+    useEffect(() => {
+        let initialText = "";
+
+        if (initialState && initialState.sequences && initialState.sequences[index] && initialState.sequences[index].text) {
+            if (initialState.sequences[index].text.length) {
+                initialText = `${initialState.sequences[index].text}`;
+            }
+        }
+
+        handleSubmission(initialText);
+        
+    }, [ initialState ]);
 
     let initialText = "";
 
