@@ -23,12 +23,18 @@
     height: 30px;
 }
 
-.CodeMirror {
-    background-color: gray;
-    border-radius: 4px;
+.CodeMirror.cm-s-default {
+    background-color: transparent;
+    border-radius: 15px;
+    border-width: 2px;
+    border: solid;
     border-color: lightgray;
     color: whitesmoke;
     font-size: 16px;
+}
+
+.CodeMirror-cursor {
+    border-color: whitesmoke;
 }
 
 .code-container {
@@ -85,4 +91,46 @@ a {
 
 .pattern-elt:hover {
     color: #ffffff;
+}
+
+.leftMenu {
+    width: 30%;
+    background: #26264A;
+}
+
+.nestupArea {
+    width: 70%;
+    background: #333366;
+}
+
+.App {
+    display: flex;
+}
+
+.menuHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menuHeader p {
+    font-size: 24px;
+    color: whitesmoke;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+
+.menuHeader p.chooser {
+    cursor: pointer;
+}
+
+.menuHeader p.selected {
+    text-decoration: underline;
+}
+
+.leftMenuPane {
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 8px;
 }
