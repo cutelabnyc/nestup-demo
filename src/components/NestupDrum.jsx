@@ -6,7 +6,7 @@ import { AudioManagerContext } from "../contexts/audio";
 import { SharableContext } from "../contexts/sharable"
 import { Visualizer } from "./Visualizer";
 
-export const NestupDrum = ({ note, sampler, index, initialState }) => {
+export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) => {
 
     const [nestup, setNestup] = useState(null);
 
@@ -46,7 +46,7 @@ export const NestupDrum = ({ note, sampler, index, initialState }) => {
     }
 
     return (
-        <div className="nestup-drum">
+        <div className={"nestup-drum " + (hidden ? "hidden " : "") + (big ? "big " : "")}>
             <AudioManagerContext.Consumer>
                 {value => (
                     <>

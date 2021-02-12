@@ -6,6 +6,7 @@ import { ExportButton } from "./ExportButton";
 import { PatternPicker } from "./PatternPicker";
 import { patterns } from "../data/patterns";
 import { AudioManagerContext } from "../contexts/audio";
+import { OneFourChooser } from "./OneFourChooser";
 
 const loc = new URL(window.location.href);
 const encodedState = loc.searchParams.get("state");
@@ -19,6 +20,7 @@ if (encodedState) {
 export const NestupArea = ({ audioManager }) => {
     const [sampler, setSampler] = useState(null);
     const [appPatterns, setPatterns] = useState(state);
+    const [oneFourLayout, setOneFourLayout] = useState("one");
 
     const onPick = (pattern) => {
         setPatterns({
@@ -43,15 +45,19 @@ export const NestupArea = ({ audioManager }) => {
         createSampler();
     }, []);
 
+    const handleIndexSelected = (idx) => {
+        setOneFourLayout(idx === 0 ? "one" : "four");
+    }
+
     return (
         <div className="nestupArea">
             <div className="vertical-align">
                 <div className="nestup-demo-root">
-                    <div className="code-container">
-                        <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={appPatterns} />
-                        <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={appPatterns} />
-                        <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={appPatterns} />
-                        <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={appPatterns} />
+                    <div className={"code-container"}>
+                        <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={appPatterns} big={oneFourLayout === "one"}/>
+                        <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={appPatterns} hidden={oneFourLayout === "one"} />
+                        <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={appPatterns} hidden={oneFourLayout === "one"} />
+                        <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={appPatterns} hidden={oneFourLayout === "one"} />
                     </div>
                 </div>
                 <SharableContext.Consumer>
@@ -62,12 +68,7 @@ export const NestupArea = ({ audioManager }) => {
                         </div> }
                 </SharableContext.Consumer>
             </div>
-
-            <AudioManagerContext.Consumer>
-                {value => (
-                    <PatternPicker patterns={patterns} onPick={onPick} audioManager={ value } />
-                )}
-            </AudioManagerContext.Consumer>
+            <OneFourChooser onSelectIndex={handleIndexSelected}/>
         </div>
     );
 };

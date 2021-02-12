@@ -11,11 +11,19 @@
 }
 
 .nestup-drum {
-    width: 400px;
-    height: 300px;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    width: 400px;
+}
+
+.nestup-drum.big {
+    width: 800px;
+    height: 700px;
+}
+
+.nestup-drum.hidden {
+    display: none;
 }
 
 .nestup-visualizer {
@@ -23,7 +31,7 @@
     height: 30px;
 }
 
-.CodeMirror.cm-s-default {
+.CodeMirror {
     background-color: transparent;
     border-radius: 15px;
     border-width: 2px;
@@ -31,6 +39,7 @@
     border-color: lightgray;
     color: whitesmoke;
     font-size: 16px;
+    height: 100%;
 }
 
 .CodeMirror-cursor {
@@ -39,6 +48,7 @@
 
 .code-container {
     width: 840px;
+    height: 750px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -133,4 +143,17 @@ a {
     color: whitesmoke;
     font-size: 16px;
     padding: 8px;
+}
+
+.oneFourContainer {
+    width: 100px;
+    display: flex;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    justify-content: right;
+    flex-flow: column;
+    place-content: center;
+    place-items: center;
+    height: 100vh;
 }
