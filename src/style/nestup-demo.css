@@ -15,6 +15,7 @@
     flex-direction: column;
     width: 400px;
     margin: 10px;
+    height: 350px;
 }
 
 .codeFrame {
@@ -36,7 +37,7 @@
 }
 
 .nestup-visualizer {
-    width: 100%;
+    width: 75%;
     height: 30px;
 }
 
@@ -44,6 +45,7 @@
     background-color: transparent;
     color: whitesmoke;
     font-size: 16px;
+    height: 100%;
 }
 
 .CodeMirror-cursor {
@@ -160,4 +162,13 @@ a {
     place-content: center;
     place-items: center;
     height: 100vh;
+}
+
+.visualizerContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+textarea {
+    height: 100%;
 }

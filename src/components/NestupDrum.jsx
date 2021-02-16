@@ -9,6 +9,7 @@ import { Visualizer } from "./Visualizer";
 export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) => {
 
     const [nestup, setNestup] = useState(null);
+    const [activeNote, setActiveNote] = useState(-1);
 
     const handleSubmission = (text) => {
         const parser = new RhythmParser();
@@ -23,6 +24,12 @@ export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) 
             // throw new ParseError(e);
         }
     };
+
+    const onTriggerNote = (noteIndex) => { setActiveNote(noteIndex) };
+
+    const clear = () => {
+        setNestup(null);
+    }
 
     useEffect(() => {
         let initialText = "";
@@ -59,17 +66,21 @@ export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) 
                                     state={state} 
                                     dispatch={dispatch} 
                                     index={index}
-                                    initialText={initialText} 
+                                    initialText={initialText}
                                 />
                             }
                         </SharableContext.Consumer>
-                        <Visualizer nestup={nestup} />
-                            <Sequencer 
-                                sampler={sampler} 
-                                note={note}
-                                audioManager={value} 
-                                nestup={nestup}
-                            /> 
+                        <div className="visualizerContainer">
+                            <Visualizer nestup={nestup} activeNoteIndex={activeNote}/>
+                            <button className="clearButton" onClick={clear} hidden={nestup === null || nestup.beatLength === 0} >Clear</button>
+                        </div>
+                        <Sequencer 
+                            sampler={sampler} 
+                            note={note}
+                            audioManager={value} 
+                            nestup={nestup}
+                            onTriggerNote={onTriggerNote}
+                        /> 
                     </>
                 )}
             </AudioManagerContext.Consumer>
