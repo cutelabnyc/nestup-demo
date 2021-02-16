@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import CodeMirror from "codemirror/lib/codemirror";
 import "codemirror/lib/codemirror.css"
 import { useEffect, useRef } from "react";
@@ -42,13 +42,15 @@ export const CodeArea = ({ name, onSubmit, audioManager, dispatch, index, initia
 
     useEffect(
         () => {
-            if (codeMirror && initialText) {
+            if (codeMirror && (initialText !== undefined)) {
                 codeMirror.setValue(initialText);
             }
         }, [codeMirror, initialText]
     );
 
     return (
-        <textarea name={ name } ref= { textAreaRef } />
+        <div className="codeFrame">
+            <textarea name={ name } ref= { textAreaRef } />
+        </div>
     )
 }

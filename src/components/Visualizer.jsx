@@ -22,60 +22,62 @@ function colorForPath(path) {
     return `rgb(${str}, ${str}, ${str})`;
 }
 
-export const Visualizer = ({ nestup }) => {
+export const Visualizer = ({ nestup, activeNoteIndex }) => {
 
     const canvasRef = useRef(null);
 
     useEffect(() => {
 
-        if (nestup && canvasRef.current) {
+        if (canvasRef.current) {
 
             const ctx = canvasRef.current.getContext('2d');
-            const events = nestup.onOffEvents();
 
             // Clear
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-            ctx.fillStyle = "rgb(0, 0, 0, 255)";
-            ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
             ctx.fillStyle = "rgb(255, 255, 255, 255)";
 
-            console.log(events.length);
+            if (nestup) {
+                const events = nestup.onOffEvents();
 
-            // Events come in on/off pairs
-            for (let i = 0; i < events.length; i += 2) {
-                let startEvent = events[i];
-                let endEvent = events[i + 1];
-                let startTime = startEvent.time;
-                let endTime = endEvent.time;
-                let path = startEvent.path;
-                let nt1 = startTime;
-                let nt2 = endTime;
-                let color = colorForPath(path);
+                // Events come in on/off pairs
+                for (let i = 0; i < events.length; i += 2) {
+                    let startEvent = events[i];
+                    let endEvent = events[i + 1];
+                    let startTime = startEvent.time;
+                    let endTime = endEvent.time;
+                    let path = startEvent.path;
+                    let nt1 = startTime;
+                    let nt2 = endTime;
+                    let color = colorForPath(path);
 
-                ctx.fillStyle = color;
-                ctx.fillRect(nt1 * ctx.canvas.width, 0, (nt2 - nt1) * ctx.canvas.width, ctx.canvas.height);
-                
-                ctx.strokeStyle = "rgb(255, 255, 255, 255)";
+                    if (activeNoteIndex === i)
+                        color = "rgb(255, 255, 255, 255)";
 
-                ctx.beginPath();
-                if (startTime !== 0) {
-                    ctx.moveTo(nt1 * ctx.canvas.width, 0);
-                    ctx.lineTo(nt1 * ctx.canvas.width, ctx.canvas.height);
-                    // ctx.stroke();
+                    ctx.fillStyle = color;
+                    ctx.fillRect(nt1 * ctx.canvas.width, 0, (nt2 - nt1) * ctx.canvas.width, ctx.canvas.height);
+                    
+                    ctx.strokeStyle = "rgb(255, 255, 255, 255)";
+
+                    ctx.beginPath();
+                    if (startTime !== 0) {
+                        ctx.moveTo(nt1 * ctx.canvas.width, 0);
+                        ctx.lineTo(nt1 * ctx.canvas.width, ctx.canvas.height);
+                        // ctx.stroke();
+                    }
+
+                    // if (endTime !== 1.0) {
+                    //     ctx.moveTo(nt2 * ctx.canvas.width, 0);
+                    //     ctx.lineTo(nt2 * ctx.canvas.width, ctx.canvas.height);
+                    //     ctx.stroke();
+                    // }
+
+                    ctx.stroke();
                 }
-
-                // if (endTime !== 1.0) {
-                //     ctx.moveTo(nt2 * ctx.canvas.width, 0);
-                //     ctx.lineTo(nt2 * ctx.canvas.width, ctx.canvas.height);
-                //     ctx.stroke();
-                // }
-
-                ctx.stroke();
             }
         }
 
-    }, [nestup]);
+    }, [nestup, activeNoteIndex]);
 
     return <canvas className="nestup-visualizer" ref={canvasRef} />;
 };

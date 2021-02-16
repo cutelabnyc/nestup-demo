@@ -11,28 +11,50 @@
 }
 
 .nestup-drum {
-    width: 400px;
-    height: 300px;
-    padding: 10px;
     display: flex;
     flex-direction: column;
+    width: 400px;
+    margin: 10px;
+    height: 350px;
+}
+
+.codeFrame {
+    padding: 10px;
+    border-radius: 15px;
+    border-width: 2px;
+    border: solid;
+    border-color: lightgray;
+    height: 100%;
+}
+
+.nestup-drum.big {
+    width: 800px;
+    height: 700px;
+}
+
+.nestup-drum.hidden {
+    display: none;
 }
 
 .nestup-visualizer {
-    width: 100%;
+    width: 75%;
     height: 30px;
 }
 
 .CodeMirror {
-    background-color: gray;
-    border-radius: 4px;
-    border-color: lightgray;
+    background-color: transparent;
     color: whitesmoke;
     font-size: 16px;
+    height: 100%;
+}
+
+.CodeMirror-cursor {
+    border-color: whitesmoke;
 }
 
 .code-container {
     width: 840px;
+    height: 750px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -49,4 +71,104 @@
 body {
     margin: 0;
     padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+  
+#page-wrap {
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+a {
+    color: orange;
+}
+
+.columns {
+    display: flex;
+}
+
+.picker {
+    position: absolute;
+    width: 300px;
+    height: 100%;
+    right: 0;
+    top: 0;
+}
+
+.pattern-elt {
+    width: 100%;
+    padding-top: 5px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.pattern-elt:hover {
+    color: #ffffff;
+}
+
+.leftMenu {
+    width: 30%;
+    background: #26264A;
+}
+
+.nestupArea {
+    width: 70%;
+    background: #333366;
+}
+
+.App {
+    display: flex;
+}
+
+.menuHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menuHeader p {
+    font-size: 24px;
+    color: whitesmoke;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: default;
+}
+
+.menuHeader p.chooser {
+    cursor: pointer;
+}
+
+.menuHeader p.selected {
+    text-decoration: underline;
+}
+
+.leftMenuPane {
+    color: whitesmoke;
+    font-size: 16px;
+    padding: 8px;
+}
+
+.oneFourContainer {
+    width: 100px;
+    display: flex;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    justify-content: right;
+    flex-flow: column;
+    place-content: center;
+    place-items: center;
+    height: 100vh;
+}
+
+.visualizerContainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+textarea {
+    height: 100%;
 }

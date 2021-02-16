@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CodeArea } from "./CodeArea";
 import { RhythmParser, Nestup } from "@cutelab/nestup/dist/nestup.bundle";
 import { Sequencer } from "./Sequencer";
@@ -6,9 +6,10 @@ import { AudioManagerContext } from "../contexts/audio";
 import { SharableContext } from "../contexts/sharable"
 import { Visualizer } from "./Visualizer";
 
-export const NestupDrum = ({ note, sampler, index, initialState }) => {
+export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) => {
 
     const [nestup, setNestup] = useState(null);
+    const [activeNote, setActiveNote] = useState(-1);
 
     const handleSubmission = (text) => {
         const parser = new RhythmParser();
@@ -24,6 +25,25 @@ export const NestupDrum = ({ note, sampler, index, initialState }) => {
         }
     };
 
+    const onTriggerNote = (noteIndex) => { setActiveNote(noteIndex) };
+
+    const clear = () => {
+        setNestup(null);
+    }
+
+    useEffect(() => {
+        let initialText = "";
+
+        if (initialState && initialState.sequences && initialState.sequences[index] && initialState.sequences[index].text) {
+            if (initialState.sequences[index].text.length) {
+                initialText = `${initialState.sequences[index].text}`;
+            }
+        }
+
+        handleSubmission(initialText);
+        
+    }, [ initialState ]);
+
     let initialText = "";
 
     if (initialState && initialState.sequences && initialState.sequences[index] && initialState.sequences[index].text) {
@@ -33,7 +53,7 @@ export const NestupDrum = ({ note, sampler, index, initialState }) => {
     }
 
     return (
-        <div className="nestup-drum">
+        <div className={"nestup-drum " + (hidden ? "hidden " : "") + (big ? "big " : "")}>
             <AudioManagerContext.Consumer>
                 {value => (
                     <>
@@ -46,17 +66,21 @@ export const NestupDrum = ({ note, sampler, index, initialState }) => {
                                     state={state} 
                                     dispatch={dispatch} 
                                     index={index}
-                                    initialText={initialText} 
+                                    initialText={initialText}
                                 />
                             }
                         </SharableContext.Consumer>
-                        <Visualizer nestup={nestup} />
-                            <Sequencer 
-                                sampler={sampler} 
-                                note={note}
-                                audioManager={value} 
-                                nestup={nestup}
-                            /> 
+                        <div className="visualizerContainer">
+                            <Visualizer nestup={nestup} activeNoteIndex={activeNote}/>
+                            <button className="clearButton" onClick={clear} hidden={nestup === null || nestup.beatLength === 0} >Clear</button>
+                        </div>
+                        <Sequencer 
+                            sampler={sampler} 
+                            note={note}
+                            audioManager={value} 
+                            nestup={nestup}
+                            onTriggerNote={onTriggerNote}
+                        /> 
                     </>
                 )}
             </AudioManagerContext.Consumer>
