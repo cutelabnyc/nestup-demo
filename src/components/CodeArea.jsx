@@ -49,6 +49,8 @@ export const CodeArea = ({ name, onSubmit, audioManager, dispatch, index, initia
     );
 
     return (
-        <textarea name={ name } ref= { textAreaRef } />
+        <div className="codeFrame">
+            <textarea name={ name } ref= { textAreaRef } />
+        </div>
     )
 }

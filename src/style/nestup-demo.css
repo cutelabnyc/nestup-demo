@@ -11,10 +11,19 @@
 }
 
 .nestup-drum {
-    padding: 10px;
     display: flex;
     flex-direction: column;
     width: 400px;
+    margin: 10px;
+}
+
+.codeFrame {
+    padding: 10px;
+    border-radius: 15px;
+    border-width: 2px;
+    border: solid;
+    border-color: lightgray;
+    height: 100%;
 }
 
 .nestup-drum.big {
@@ -33,13 +42,8 @@
 
 .CodeMirror {
     background-color: transparent;
-    border-radius: 15px;
-    border-width: 2px;
-    border: solid;
-    border-color: lightgray;
     color: whitesmoke;
     font-size: 16px;
-    height: 100%;
 }
 
 .CodeMirror-cursor {
