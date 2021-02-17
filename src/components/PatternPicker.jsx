@@ -1,13 +1,29 @@
 import React from "react";
+import { patterns } from "../data/patterns";
 
-export const PatternPicker = ({ patterns, onPick, audioManager }) => {
+export const PatternPicker = ({ audioManager, dispatch }) => {
 
-    const handlePick = (pattern) => {
+    const handlePick = (patterns) => {
         if (audioManager.state !== "running") {
             audioManager.start();
         }
 
-        onPick(pattern)
+        for (let i = 0; i < 4; i++) {
+            let text = "";
+            if (i < patterns.length) {
+                text = patterns[i];
+            }
+
+            dispatch({
+                type: "set_text",
+                index: i,
+                text
+            });
+        }
+
+        dispatch({
+            type: "increment_preset"
+        });
     }
     
     const patternElts = patterns.map((p, idx) => {

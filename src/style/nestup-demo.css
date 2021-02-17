@@ -91,11 +91,8 @@ a {
 }
 
 .picker {
-    position: absolute;
     width: 300px;
     height: 100%;
-    right: 0;
-    top: 0;
 }
 
 .pattern-elt {

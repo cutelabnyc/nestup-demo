@@ -67,6 +67,7 @@ export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) 
                                     dispatch={dispatch} 
                                     index={index}
                                     initialText={initialText}
+                                    hidden={hidden}
                                 />
                             }
                         </SharableContext.Consumer>

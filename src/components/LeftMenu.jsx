@@ -3,6 +3,9 @@ import { Presets } from "./Presets";
 import { Instruments } from "./Instruments";
 import { Cheat } from "./Cheat";
 import { About } from "./About";
+import { PatternPicker } from "./PatternPicker";
+import { AudioManagerContext } from "../contexts/audio";
+import { SharableContext } from "../contexts/sharable";
 
 export const LeftMenu = () => {
 
@@ -11,7 +14,16 @@ export const LeftMenu = () => {
     let viewArea;
     switch (selectedIndex) {
         case 0:
-            viewArea = <Presets />
+            viewArea = (
+                <>
+                <AudioManagerContext.Consumer>
+                    {value => 
+                        <SharableContext.Consumer>
+                            {({dispatch}) => <PatternPicker audioManager={value} dispatch={dispatch} />}
+                        </SharableContext.Consumer>}
+                </AudioManagerContext.Consumer>
+                </>
+            )
             break;
         case 1:
             viewArea = <Instruments />

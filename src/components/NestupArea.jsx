@@ -3,9 +3,6 @@ import { NestupDrum } from "./NestupDrum";
 import { SharableContext } from "../contexts/sharable";
 import { ShareButton } from "./ShareButton";
 import { ExportButton } from "./ExportButton";
-import { PatternPicker } from "./PatternPicker";
-import { patterns } from "../data/patterns";
-import { AudioManagerContext } from "../contexts/audio";
 import { OneFourChooser } from "./OneFourChooser";
 
 const loc = new URL(window.location.href);
@@ -17,10 +14,11 @@ if (encodedState) {
 	} catch (e) {}
 }
 
-export const NestupArea = ({ audioManager }) => {
+export const NestupArea = ({ audioManager, state }) => {
     const [sampler, setSampler] = useState(null);
     const [appPatterns, setPatterns] = useState(state);
     const [oneFourLayout, setOneFourLayout] = useState("one");
+    const [presetSequence, setPresetSequence] = useState(-1);
 
     const onPick = (pattern) => {
         setPatterns({
@@ -44,6 +42,23 @@ export const NestupArea = ({ audioManager }) => {
         }
         createSampler();
     }, []);
+
+    useEffect(() => {
+        if (state.presetSequence !== presetSequence)
+            setPresetSequence(state.presetSequence);
+    }, [state]);
+
+    useEffect(() => {
+        let hasMultipleText = false;
+        for (let i = 0; i < state.sequences.length; i++) {
+            if (i > 0 && state.sequences[i].text.length > 0) {
+                hasMultipleText = true;
+                break;
+            }
+        }
+
+        setOneFourLayout(hasMultipleText ? "four" : "one");
+    }, [presetSequence]);
 
     const handleIndexSelected = (idx) => {
         setOneFourLayout(idx === 0 ? "one" : "four");
