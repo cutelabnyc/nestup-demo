@@ -3,10 +3,11 @@ import CodeMirror from "codemirror/lib/codemirror";
 import "codemirror/lib/codemirror.css"
 import { useEffect, useRef } from "react";
 
-export const CodeArea = ({ name, onSubmit, audioManager, dispatch, index, initialText }) => {
+export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index, initialText, hidden }) => {
 
     const textAreaRef = useRef(null);
     const [codeMirror, setCodeMirror] = useState(null);
+    const [presetSequence, setPresetSequence] = useState(-1);
 
     useEffect(
         () => {
@@ -46,6 +47,31 @@ export const CodeArea = ({ name, onSubmit, audioManager, dispatch, index, initia
                 codeMirror.setValue(initialText);
             }
         }, [codeMirror, initialText]
+    );
+
+    useEffect(
+        () => {
+            if (state.presetSequence !== presetSequence)
+                setPresetSequence(state.presetSequence)
+        }, [state]
+    );
+
+    useEffect(
+        () => {
+            const text = state.sequences[index].text;
+            if (codeMirror) {
+                codeMirror.setValue(text);
+                onSubmit(text);
+                codeMirror.refresh();
+            }
+        }, [presetSequence]
+    );
+
+    useEffect(
+        () => {
+            if (codeMirror)
+                codeMirror.refresh();
+        }, [hidden]
     );
 
     return (

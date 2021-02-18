@@ -6,7 +6,7 @@ import { AudioManagerContext } from "../contexts/audio";
 import { SharableContext } from "../contexts/sharable"
 import { Visualizer } from "./Visualizer";
 
-export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) => {
+export const NestupDrum = ({ voice, onNote, index, initialState, hidden, big }) => {
 
     const [nestup, setNestup] = useState(null);
     const [activeNote, setActiveNote] = useState(-1);
@@ -25,7 +25,10 @@ export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) 
         }
     };
 
-    const onTriggerNote = (noteIndex) => { setActiveNote(noteIndex) };
+    const onTriggerNote = (time, note) => {
+        setActiveNote(note.index);
+        if (onNote) onNote(time, note);
+    };
 
     const clear = () => {
         setNestup(null);
@@ -57,6 +60,7 @@ export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) 
             <AudioManagerContext.Consumer>
                 {value => (
                     <>
+                        <p className="voiceLabel">{voice? voice.name : ""}</p>
                         <SharableContext.Consumer>
                             {({state, dispatch}) => 
                                 <CodeArea 
@@ -67,6 +71,7 @@ export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) 
                                     dispatch={dispatch} 
                                     index={index}
                                     initialText={initialText}
+                                    hidden={hidden}
                                 />
                             }
                         </SharableContext.Consumer>
@@ -75,8 +80,7 @@ export const NestupDrum = ({ note, sampler, index, initialState, hidden, big }) 
                             <button className="clearButton" onClick={clear} hidden={nestup === null || nestup.beatLength === 0} >Clear</button>
                         </div>
                         <Sequencer 
-                            sampler={sampler} 
-                            note={note}
+                            note={voice ? voice.note : null}
                             audioManager={value} 
                             nestup={nestup}
                             onTriggerNote={onTriggerNote}

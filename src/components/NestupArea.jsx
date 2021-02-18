@@ -3,10 +3,8 @@ import { NestupDrum } from "./NestupDrum";
 import { SharableContext } from "../contexts/sharable";
 import { ShareButton } from "./ShareButton";
 import { ExportButton } from "./ExportButton";
-import { PatternPicker } from "./PatternPicker";
-import { patterns } from "../data/patterns";
-import { AudioManagerContext } from "../contexts/audio";
 import { OneFourChooser } from "./OneFourChooser";
+import { SamplerManager } from "../engine/samplerManager";
 
 const loc = new URL(window.location.href);
 const encodedState = loc.searchParams.get("state");
@@ -17,47 +15,70 @@ if (encodedState) {
 	} catch (e) {}
 }
 
-export const NestupArea = ({ audioManager }) => {
-    const [sampler, setSampler] = useState(null);
-    const [appPatterns, setPatterns] = useState(state);
+export const NestupArea = ({ audioManager, state, dispatch }) => {
+    const [samplerManager, setSamplerManager] = useState(null);
     const [oneFourLayout, setOneFourLayout] = useState("one");
-
-    const onPick = (pattern) => {
-        setPatterns({
-            sequences: pattern.map(p => { return { text: p }})
-        });
-    };
+    const [presetSequence, setPresetSequence] = useState(-1);
+    const [voices, setVoices] = useState(null);
+    const [instrumentId, setInstrumentId] = useState(state.instrument);
 
     useEffect(() => {
-        const createSampler = async () => {
-
-            const nextSampler = new audioManager.tone.Sampler({
-                urls: {
-                    C1: "https://freesound.org/data/previews/248/248142_3667999-lq.mp3",
-                    ["D1"]: "https://freesound.org/data/previews/387/387186_7255534-lq.mp3",
-                    ["F#1"]: "https://freesound.org/data/previews/397/397042_4357738-lq.mp3",
-                    ["D2"]: "https://freesound.org/data/previews/99/99766_29308-lq.mp3"
-                }
-            }).toDestination();
-
-            setSampler(nextSampler);
+        let newSamplerManager = new SamplerManager(audioManager);
+        setSamplerManager(newSamplerManager);
+        if (instrumentId) {
+            samplerManewSamplerManagernager.setInstrument(instrumentId);
+            setVoices(newSamplerManager.getVoices());
         }
-        createSampler();
+
+        dispatch({
+            type: "set_instrument_id",
+            id: "basic"
+        });
     }, []);
+
+    useEffect(() => {
+        if (state.presetSequence !== presetSequence)
+            setPresetSequence(state.presetSequence);
+
+        if (instrumentId !== state.instrument) {
+            setInstrumentId(state.instrument);
+            if (samplerManager) {
+                samplerManager.setInstrument(state.instrument);
+                setVoices(samplerManager.getVoices());
+            }
+        }
+    }, [state]);
+
+    useEffect(() => {
+        let hasMultipleText = false;
+        for (let i = 0; i < state.sequences.length; i++) {
+            if (i > 0 && state.sequences[i].text.length > 0) {
+                hasMultipleText = true;
+                break;
+            }
+        }
+
+        setOneFourLayout(hasMultipleText ? "four" : "one");
+    }, [presetSequence]);
 
     const handleIndexSelected = (idx) => {
         setOneFourLayout(idx === 0 ? "one" : "four");
-    }
+    };
+
+    const handleNoteEvent = (time, note) => {
+        if (samplerManager)
+            samplerManager.handleNoteEvent(time, note);
+    };
 
     return (
         <div className="nestupArea">
             <div className="vertical-align">
                 <div className="nestup-demo-root">
                     <div className={"code-container"}>
-                        <NestupDrum note={"C1"} sampler={sampler} index={0} initialState={appPatterns} big={oneFourLayout === "one"}/>
-                        <NestupDrum note={"D1"} sampler={sampler} index={1} initialState={appPatterns} hidden={oneFourLayout === "one"} />
-                        <NestupDrum note={"F#1"} sampler={sampler} index={2} initialState={appPatterns} hidden={oneFourLayout === "one"} />
-                        <NestupDrum note={"D2"} sampler={sampler} index={3} initialState={appPatterns} hidden={oneFourLayout === "one"} />
+                        <NestupDrum voice={voices ? voices[0] : null} onNote={handleNoteEvent} index={0} big={oneFourLayout === "one"}/>
+                        <NestupDrum voice={voices ? voices[1] : null} onNote={handleNoteEvent} index={1} hidden={oneFourLayout === "one"} />
+                        <NestupDrum voice={voices ? voices[2] : null} onNote={handleNoteEvent} index={2} hidden={oneFourLayout === "one"} />
+                        <NestupDrum voice={voices ? voices[3] : null} onNote={handleNoteEvent} index={3} hidden={oneFourLayout === "one"} />
                     </div>
                 </div>
                 <SharableContext.Consumer>

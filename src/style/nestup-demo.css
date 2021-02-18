@@ -91,11 +91,8 @@ a {
 }
 
 .picker {
-    position: absolute;
     width: 300px;
     height: 100%;
-    right: 0;
-    top: 0;
 }
 
 .pattern-elt {
@@ -107,6 +104,21 @@ a {
 
 .pattern-elt:hover {
     color: #ffffff;
+}
+
+.instrument-elt {
+    width: 100%;
+    padding-top: 5px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.instrument-elt:hover {
+    color: #ffffff;
+}
+
+.instrument-elt.active {
+    text-decoration: underline;
 }
 
 .leftMenu {
@@ -171,4 +183,9 @@ a {
 
 textarea {
     height: 100%;
+}
+
+.voiceLabel {
+    color: whitesmoke;
+    font-size: 16px;
 }

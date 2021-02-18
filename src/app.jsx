@@ -4,6 +4,7 @@ import { AudioManagerContext } from "./contexts/audio";
 import { LeftMenu } from "./components/LeftMenu";
 import { NestupArea } from "./components/NestupArea";
 import "./style/nestup-demo.css";
+import { SharableContext } from "./contexts/sharable";
 
 // kick - C2
 // snare - C#2
@@ -15,7 +16,11 @@ export const App = ({ audioManager, initialState }) => {
         <div className="App">
             <LeftMenu />
             <AudioManagerContext.Consumer>
-                {value => <NestupArea audioManager={value} /> }
+                {value => 
+                    <SharableContext.Consumer>
+                        {({state, dispatch}) => <NestupArea audioManager={value} state={state} dispatch={dispatch} />}
+                    </SharableContext.Consumer>
+                }
             </AudioManagerContext.Consumer>
         </div>
     )  

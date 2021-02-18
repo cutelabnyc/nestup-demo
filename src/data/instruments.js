@@ -1,0 +1,84 @@
+export const instruments = [
+    {
+        id: "basic",
+        name: "Basic Kit",
+        voices: [
+            {
+                note: "C1",
+                name: "Kick"
+            }, 
+            {
+                note: "D1",
+                name: "Snare",
+            },
+            {
+                note: "F#1",
+                name: "Hihat"
+            },
+            {
+                note: "D2",
+                name: "Cowbell"
+            }
+        ],
+        urls: {
+            C1: "https://freesound.org/data/previews/248/248142_3667999-lq.mp3",
+            D1: "https://freesound.org/data/previews/387/387186_7255534-lq.mp3",
+            // You need the ["F#1"] syntax because of the sharp
+            ["F#1"]: "https://freesound.org/data/previews/397/397042_4357738-lq.mp3",
+            D2: "https://freesound.org/data/previews/99/99766_29308-lq.mp3"
+        }
+    },
+    {
+        id: "edm",
+        name: "EDM Kit",
+        voices: [
+            {
+                note: "C1",
+                name: "Kick"
+            }, 
+            {
+                note: "D1",
+                name: "Snare",
+            },
+            {
+                note: "F#1",
+                name: "Hihat"
+            },
+            {
+                note: "D2",
+                name: "Cowbell"
+            }
+        ],
+        urls: {
+            C1: "https://freesound.org/data/previews/171/171104_2394245-lq.mp3",
+            D1: "https://freesound.org/data/previews/277/277046_2511427-lq.mp3",
+            ["F#1"]: "https://freesound.org/data/previews/372/372216_6937596-lq.mp3",
+            D2: "https://freesound.org/data/previews/99/99766_29308-lq.mp3"
+        }
+    },
+    {
+        id: "piano",
+        name: "Grand Piano",
+        voices: [
+            {
+                note: "E3",
+                name: "E3"
+            }, 
+            {
+                note: "G3",
+                name: "G3",
+            },
+            {
+                note: "B3",
+                name: "B3"
+            },
+            {
+                note: "C#4",
+                name: "C#4"
+            }
+        ],
+        urls: {
+            A3: "https://freesound.org/data/previews/442/442978_9159373-lq.mp3"
+        }
+    },
+];
