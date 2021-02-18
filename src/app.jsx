@@ -18,7 +18,7 @@ export const App = ({ audioManager, initialState }) => {
             <AudioManagerContext.Consumer>
                 {value => 
                     <SharableContext.Consumer>
-                        {({state}) => <NestupArea audioManager={value} state={state} />}
+                        {({state, dispatch}) => <NestupArea audioManager={value} state={state} dispatch={dispatch} />}
                     </SharableContext.Consumer>
                 }
             </AudioManagerContext.Consumer>

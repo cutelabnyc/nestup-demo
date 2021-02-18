@@ -6,7 +6,8 @@ export function makeInititalSharableState(nestupCount) {
 
     return {
         sequences,
-        presetSequence: 0
+        presetSequence: 0,
+        instrument: null
     };
 }
 
@@ -24,6 +25,11 @@ export function sharableReducer(state, action) {
 
         case "increment_preset":
             newState = Object.assign({}, state, { presetSequence: (state.presetSequence + 1) });
+            return newState;
+
+        case "set_instrument_id":
+            const { id } = action;
+            newState = Object.assign({}, state, { instrument: id });
             return newState;
 
         default:

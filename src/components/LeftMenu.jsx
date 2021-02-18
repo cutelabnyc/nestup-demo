@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Presets } from "./Presets";
 import { Instruments } from "./Instruments";
 import { Cheat } from "./Cheat";
 import { About } from "./About";
@@ -26,7 +25,11 @@ export const LeftMenu = () => {
             )
             break;
         case 1:
-            viewArea = <Instruments />
+            viewArea = (
+                <SharableContext.Consumer>
+                    {({state,dispatch}) => <Instruments state={state} dispatch={dispatch} />}
+                </SharableContext.Consumer>
+            )
             break;
         case 2:
             viewArea = <Cheat />
