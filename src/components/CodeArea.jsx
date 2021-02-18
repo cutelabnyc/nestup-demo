@@ -3,11 +3,19 @@ import CodeMirror from "codemirror/lib/codemirror";
 import "codemirror/lib/codemirror.css"
 import { useEffect, useRef } from "react";
 
-export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index, initialText, hidden }) => {
+export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index, initialText, hidden, mark }) => {
 
     const textAreaRef = useRef(null);
     const [codeMirror, setCodeMirror] = useState(null);
     const [presetSequence, setPresetSequence] = useState(-1);
+    const [parseAnimate, setParseAnimate] = useState(false);
+
+    const handleParseClicked = () => {
+        if (onSubmit && codeMirror) {
+            onSubmit(codeMirror.getValue());
+        }
+        setParseAnimate(true);
+    };
 
     useEffect(
         () => {
@@ -22,8 +30,11 @@ export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index,
                     audioManager.start();
                 }
                 if (event.shiftKey && event.key === "Enter") {
-                    if (onSubmit) onSubmit(myCodeMirror.getValue());
-                    event.preventDefault();
+                    if (onSubmit) {
+                        event.preventDefault();
+                        setParseAnimate(true);
+                        onSubmit(myCodeMirror.getValue());
+                    }
                 }
             });
 
@@ -74,9 +85,46 @@ export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index,
         }, [hidden]
     );
 
+    useEffect(
+        () => {
+            if (!mark && codeMirror) {
+                const marks = codeMirror.getAllMarks();
+                marks.forEach(m => m.clear());
+            }
+            else if (codeMirror) {
+                const { token, col, line } = mark;
+                // If there's a token, mark it
+                if (token) {
+                    const parsedToken = (token === "##comma##" ? "," : token);
+                    codeMirror.markText({line, ch: col}, {line, ch: col + parsedToken.length}, { className: "errortext" });
+                }
+    
+                // Otherwise mark the whole line
+                else {
+                    const lineText = codeMirror.getLine(line);
+                    codeMirror.markText({line, ch: 0}, {line, ch: lineText.length}, { className: "errortext" });
+                }
+    
+                // const errorBox = document.getElementsByClassName("errorBox")[0];
+                // errorBox.textContent = message;
+                // errorBox.hidden = false;
+            }
+        }, [mark]
+    );
+
     return (
         <div className="codeFrame">
             <textarea name={ name } ref= { textAreaRef } />
+            <div className="codeFrameFooter">
+                <div className={"errorBox " + (!!mark ? "active" : "")}>{mark ? mark.message : ""}</div>
+                <div 
+                    className={"parseButton " + (parseAnimate ? "blinkparse" : "")}
+                    onClick={handleParseClicked}
+                    onAnimationEnd={() => {
+                        setParseAnimate(false);
+                    }}
+                >Parse</div>
+            </div>
         </div>
     )
 }

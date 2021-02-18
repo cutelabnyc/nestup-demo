@@ -19,12 +19,18 @@
 }
 
 .codeFrame {
-    padding: 10px;
     border-radius: 15px;
     border-width: 2px;
     border: solid;
     border-color: lightgray;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.codeFrameFooter {
+    display: flex;
+    align-items: flex-end;
 }
 
 .nestup-drum.big {
@@ -46,6 +52,7 @@
     color: whitesmoke;
     font-size: 16px;
     height: 100%;
+    margin: 10px;
 }
 
 .CodeMirror-cursor {
@@ -188,4 +195,59 @@ textarea {
 .voiceLabel {
     color: whitesmoke;
     font-size: 16px;
+}
+
+.errortext {
+	text-decoration: underline red;
+	background-color: lightpink;
+    color: black;
+}
+
+.errorBox {
+	width: 100%;
+	font-size: 16px;
+	font-family: monospace;
+    border-radius: 0px 0px 0px 11px;
+    padding-left: 10px;
+}
+
+.errorBox.active {
+    background-color: lightpink;
+}
+
+@keyframes blinkparse-keyframes {
+    from {background-color: rgba(255, 140, 0, 0.5);}
+    to {background-color: rgba(255, 140, 0, 0.0);}
+}
+
+.parseButton.blinkparse {
+    animation: blinkparse-keyframes 500ms;
+}
+
+.parseButton {
+    border-left: solid;
+    border-top: solid;
+    border-width: 2px;
+    border-radius: 15px 0px 11px 0px;
+    width: 100px;
+    padding: 10px;
+    border-color: orange;
+    color: orange;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.parseButton:hover {
+    text-decoration: underline;
+}
+
+.parseButton:active {
+    text-decoration: underline;
+    background-color: rgba(255, 140, 0, 0.5);
+}
+
+.parseButton p {
+    cursor: pointer;
+    user-select: none;
 }
