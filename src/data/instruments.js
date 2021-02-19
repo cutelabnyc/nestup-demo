@@ -81,4 +81,29 @@ export const instruments = [
             A3: "https://freesound.org/data/previews/442/442978_9159373-lq.mp3"
         }
     },
+    {
+        id: "marimba",
+        name: "Marimba",
+        voices: [
+            {
+                note: "B2",
+                name: "B2"
+            }, 
+            {
+                note: "C3",
+                name: "C3",
+            },
+            {
+                note: "E3",
+                name: "E3"
+            },
+            {
+                note: "F#3",
+                name: "F#3"
+            }
+        ],
+        urls: {
+            C3: "https://freesound.org/data/previews/373/373579_2475994-lq.mp3"
+        }
+    },
 ];

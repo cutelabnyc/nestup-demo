@@ -30,7 +30,7 @@ export const patterns = [
         title: "Boots and cats",
         pattern: [
             "[4] {4}",
-            "[4] {2}",
+            "[4] {4 (1){0} (3){0}}",
             "[4] {8}",
         ]
     },
