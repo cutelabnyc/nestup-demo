@@ -42,9 +42,16 @@
     display: none;
 }
 
-.nestup-visualizer {
+.nestupVisualizerWrapper{
     width: 75%;
     height: 30px;
+    margin-top: 8px;
+    position: relative;
+}
+
+.nestup-visualizer {
+    width: 100%;
+    height: 100%;
 }
 
 .CodeMirror {
@@ -250,4 +257,18 @@ textarea {
 .parseButton p {
     cursor: pointer;
     user-select: none;
+}
+
+@keyframes blinktrigger-keyframes {
+    0% {fill-opacity: 60%}
+    5% {fill-opacity: 100%}
+    100% {fill-opacity: 60%}
+}
+
+.beatrect.beatblink {
+    animation: blinktrigger-keyframes 500ms;
+}
+
+.beatrect {
+    fill-opacity: 60%;
 }
