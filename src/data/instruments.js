@@ -106,4 +106,32 @@ export const instruments = [
             C3: "https://freesound.org/data/previews/373/373579_2475994-lq.mp3"
         }
     },
+    {
+        id: "knock",
+        name: "Knock Knock",
+        voices: [
+            {
+                note: "C3",
+                name: "C3"
+            }, 
+            {
+                note: "D3",
+                name: "D3",
+            },
+            {
+                note: "F3",
+                name: "F3"
+            },
+            {
+                note: "G3",
+                name: "G3"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/knock-c3.wav",
+            D3: "https://nestup.s3.amazonaws.com/knock-d3.wav",
+            F3: "https://nestup.s3.amazonaws.com/knock-f3.wav",
+            G3: "https://nestup.s3.amazonaws.com/knock-g3.wav"
+        }
+    }
 ];

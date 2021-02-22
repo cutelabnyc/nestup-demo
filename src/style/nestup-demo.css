@@ -274,8 +274,12 @@ textarea {
 }
 
 .cheatTable {
-    padding-left: 45px;
+    margin-left: 10px;
     padding-right: 0px;
+}
+
+.cheatTable tr {
+    border: solid;
 }
 
 .exampleExpression {
@@ -302,4 +306,14 @@ textarea {
 
 .cheatExplanation {
     width: 100%;
+}
+
+.exampleCopy {
+    width: 40px;
+    color: white;
+}
+
+.exampleCopy i {
+    width: 40px;
+    height: 100%;
 }

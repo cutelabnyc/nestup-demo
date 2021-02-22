@@ -70,6 +70,7 @@ export const Cheat = () => {
             <tr key={idx} onMouseOver={() => handleMouseOver(idx)} onMouseOut={handleMouseOut} className={"cheatRow " + (idx === hover ? "highlight" : "")}>
                 <td className="exampleExpression">{ex}</td>
                 <td className="exampleImageCell"><img src={images[idx]}></img></td>
+                <td className="exampleCopy"> <i className="far fa-copy"></i></td>
             </tr>
         )
     });
