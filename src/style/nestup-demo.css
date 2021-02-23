@@ -457,3 +457,10 @@ textarea {
     background-color: black;
     width: 100%;
 }
+
+.actionButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
