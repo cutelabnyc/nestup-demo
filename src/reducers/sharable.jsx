@@ -31,6 +31,25 @@ export function sharableReducer(state, action) {
             const { id } = action;
             newState = Object.assign({}, state, { instrument: id });
             return newState;
+        
+        case "rehydrate":
+            const { state: oldState } = action;
+            newState = state;
+            try {
+                newState = Object.assign(
+                    {},
+                    state,
+                    {
+                        instrument: oldState.instrument,
+                        sequences: oldState.sequences.slice(),
+                        presetSequence: (state.presetSequence + 1)
+                    });
+                return newState;
+            } catch (e) {
+                console.log("Error rehydrating state");
+                console.error(e);
+                return state;
+            }
 
         default:
             return state;

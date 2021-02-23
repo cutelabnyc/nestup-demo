@@ -4,11 +4,6 @@ import { LeftMenu } from "./components/LeftMenu";
 import { NestupArea } from "./components/NestupArea";
 import { SharableContext } from "./contexts/sharable";
 
-// kick - C2
-// snare - C#2
-// hihat - D2
-// cowbell - D#2 
-
 export const App = ({ audioManager, initialState }) => {
     return (
         <div className="App">

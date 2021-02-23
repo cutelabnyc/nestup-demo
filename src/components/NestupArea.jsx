@@ -4,15 +4,6 @@ import { OneFourChooser } from "./OneFourChooser";
 import { SamplerManager } from "../engine/samplerManager";
 import { ActionMenu } from "./ActionMenu";
 
-const loc = new URL(window.location.href);
-const encodedState = loc.searchParams.get("state");
-let state;
-if (encodedState) {
-	try {
-		state = JSON.parse(atob(encodedState));
-	} catch (e) {}
-}
-
 export const NestupArea = ({ audioManager, state, dispatch }) => {
     const [samplerManager, setSamplerManager] = useState(null);
     const [oneFourLayout, setOneFourLayout] = useState("one");
@@ -23,15 +14,31 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
     useEffect(() => {
         let newSamplerManager = new SamplerManager(audioManager);
         setSamplerManager(newSamplerManager);
-        if (instrumentId) {
-            samplerManewSamplerManagernager.setInstrument(instrumentId);
-            setVoices(newSamplerManager.getVoices());
+        // if (instrumentId) {
+        //     samplerManewSamplerManagernager.setInstrument(instrumentId);
+        //     setVoices(newSamplerManager.getVoices());
+        // }
+
+        const loc = new URL(window.location.href);
+        const encodedState = loc.searchParams.get("state");
+        let state = undefined;
+        if (encodedState) {
+            try {
+                state = JSON.parse(atob(encodedState));
+            } catch (e) {}
         }
 
-        dispatch({
-            type: "set_instrument_id",
-            id: "basic"
-        });
+        if (state === undefined) {
+            dispatch({
+                type: "set_instrument_id",
+                id: "basic"
+            });
+        } else {
+            dispatch({
+                type: "rehydrate",
+                state
+            });
+        }
     }, []);
 
     useEffect(() => {

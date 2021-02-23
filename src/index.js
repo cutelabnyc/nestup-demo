@@ -8,9 +8,6 @@ import "@fortawesome/fontawesome-free/js/fontawesome";
 import "@fortawesome/fontawesome-free/js/regular";
 import "@fortawesome/fontawesome-free/js/solid";
 
-// library.add(faCopy);
-// dom.i2svg();
-
 ReactDOM.render(
 	<SharableProvider>
 		<App />
