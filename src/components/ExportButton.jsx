@@ -73,5 +73,10 @@ export const ExportButton = ({ state }) => {
         }
     }
 
-    return <button className="export-button" onClick={handleClick}>Save</button>
+    return (
+        <div className="actionButtonContainer" onClick={handleClick}>
+            <p>Save</p>
+            <i className="fas fa-download"></i>
+        </div>
+    );
 }

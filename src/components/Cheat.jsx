@@ -10,6 +10,7 @@ import cheat07 from "../img/cheat-07.png";
 import cheat08 from "../img/cheat-08.png";
 import cheat09 from "../img/cheat-09.png";
 import cheat10 from "../img/cheat-10.png";
+import { CheatRow } from "./CheatRow";
 
 const expressions = [
     "[4]",
@@ -46,8 +47,8 @@ const explanations = [
     "Four events, with the second two events scaled at a ratio of 3:7 to the first two.",
     "Three events, evenly spaced over 4 beats (aka a triplet over 4 beats)",
     "A 3:4 triplet followed by a 5:4 quintuplet",
-    "A triplet, where the second event has been itself subdivided into a triplet. A total of 5 note events",
-    "A triplet, where the second and third beat have been replaced with a quintuplet over that same time. A total of 6 events",
+    "A triplet, where the second event has been itself subdivided into a triplet. A total of 5 note events.",
+    "A triplet, where the second and third beat have been replaced with a quintuplet over that same time. A total of 6 events.",
     "Three equally long notes in the space of 4 beats (aka a triplet), where the second note is a rest",
     "Four notes in the space of four beats, The second note is tied to the third.",
     "Five notes in the space of four beats, where the second note is tied to the third."
@@ -61,26 +62,16 @@ export const Cheat = () => {
         setHover(idx);
     };
 
-    const handleMouseOut = () => {
-        setHover(-1);
-    }
-
     const elts = expressions.map((ex, idx) => {
-        return (
-            <tr key={idx} onMouseOver={() => handleMouseOver(idx)} onMouseOut={handleMouseOut} className={"cheatRow " + (idx === hover ? "highlight" : "")}>
-                <td className="exampleExpression">{ex}</td>
-                <td className="exampleImageCell"><img src={images[idx]}></img></td>
-            </tr>
-        )
+        const img = images[idx];
+        return <CheatRow key={idx} expression={ex} image={img} onHover={(h) => {if (h) {handleMouseOver(idx)}}} />
     });
 
     return (
         <div className="leftMenuPane">
-            <table className="cheatTable">
-                <tbody>
-                    {elts}
-                </tbody>
-            </table>
+            <div className="cheatTable">
+                {elts}
+            </div>
             <div className="cheatExplanation">
                 {(hover >= 0) ? explanations[hover] : ""}
             </div>

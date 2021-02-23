@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CodeArea } from "./CodeArea";
 import { RhythmParser, Nestup, ParseError } from "@cutelab/nestup/dist/nestup.bundle";
 import { Sequencer } from "./Sequencer";
@@ -51,27 +51,6 @@ export const NestupDrum = ({ voice, onNote, index, initialState, hidden, big }) 
         setNestup(null);
     }
 
-    useEffect(() => {
-        let initialText = "";
-
-        if (initialState && initialState.sequences && initialState.sequences[index] && initialState.sequences[index].text) {
-            if (initialState.sequences[index].text.length) {
-                initialText = `${initialState.sequences[index].text}`;
-            }
-        }
-
-        handleSubmission(initialText);
-        
-    }, [ initialState ]);
-
-    let initialText = "";
-
-    if (initialState && initialState.sequences && initialState.sequences[index] && initialState.sequences[index].text) {
-        if (initialState.sequences[index].text.length) {
-            initialText = `${initialState.sequences[index].text}`;
-        }
-    }
-
     return (
         <div className={"nestup-drum " + (hidden ? "hidden " : "") + (big ? "big " : "")}>
             <AudioManagerContext.Consumer>
@@ -87,7 +66,6 @@ export const NestupDrum = ({ voice, onNote, index, initialState, hidden, big }) 
                                     state={state} 
                                     dispatch={dispatch} 
                                     index={index}
-                                    initialText={initialText}
                                     hidden={hidden}
                                     mark={mark}
                                 />
@@ -95,7 +73,9 @@ export const NestupDrum = ({ voice, onNote, index, initialState, hidden, big }) 
                         </SharableContext.Consumer>
                         <div className="visualizerContainer">
                             <Visualizer nestup={nestup} activeNoteIndex={activeNote}/>
-                            <button className="clearButton" onClick={clear} hidden={nestup === null || nestup.beatLength === 0} >Clear</button>
+                            <div className={"clearButton " + ((nestup === null || nestup.beatLength === 0) ? "hidden" : "")}  onClick={clear} >
+                                <i className="fas fa-times fa-lg"></i>
+                            </div>
                         </div>
                         <Sequencer 
                             note={voice ? voice.note : null}

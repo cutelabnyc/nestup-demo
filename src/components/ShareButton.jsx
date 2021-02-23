@@ -1,14 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { Overlay } from "./Overlay";
 
 export const ShareButton = ({ state }) => {
 
-    const handleClick = () => {
-        let currentLocation = new URL(window.location.href);
-        let encodedState = btoa(Buffer.from(JSON.stringify(state), "utf8"));
-        currentLocation.search = `state=${encodedState}`;
+    const [overlayVisible, setOverlayVisible] = useState(false);
 
-        window.location = currentLocation.href;
+    const handleOverlayClick = (event) => {
+        setOverlayVisible(false);
+        event.stopPropagation();
+    };
+
+    const handleClick = () => {
+        setOverlayVisible(true);
     }
 
-    return <button className="share-button" onClick={handleClick}>Share</button>;
+    return (
+        <div className="actionButtonContainer" onClick={handleClick}>
+            <p>Share</p>
+            <i className="fas fa-share"></i>
+            {overlayVisible ? <Overlay onClick={handleOverlayClick}/> : null}
+        </div>
+    );
 }

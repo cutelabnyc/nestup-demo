@@ -54,14 +54,6 @@ export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index,
 
     useEffect(
         () => {
-            if (codeMirror && (initialText !== undefined)) {
-                codeMirror.setValue(initialText);
-            }
-        }, [codeMirror, initialText]
-    );
-
-    useEffect(
-        () => {
             if (state.presetSequence !== presetSequence)
                 setPresetSequence(state.presetSequence)
         }, [state]

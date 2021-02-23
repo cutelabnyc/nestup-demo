@@ -43,7 +43,7 @@
 }
 
 .nestupVisualizerWrapper{
-    width: 75%;
+    width: 90%;
     height: 30px;
     margin-top: 8px;
     position: relative;
@@ -73,9 +73,15 @@
     flex-wrap: wrap;
 }
 
-.footer {
+.actionMenu {
     display: flex;
     justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 24px;
+}
+.actionMenu * {
+    margin-left: 8px;
 }
 
 .root {
@@ -106,7 +112,6 @@ a {
 
 .picker {
     width: 300px;
-    height: 100%;
 }
 
 .pattern-elt {
@@ -193,6 +198,8 @@ a {
 .visualizerContainer {
     display: flex;
     justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
 }
 
 textarea {
@@ -274,32 +281,186 @@ textarea {
 }
 
 .cheatTable {
-    padding-left: 45px;
+    margin-left: 0px;
     padding-right: 0px;
 }
 
 .exampleExpression {
-    width: 30%;
+    width: 50%;
     font-family: monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+    color: whitesmoke;
+    background-color: transparent;
+    height: auto;
 }
 
 .exampleImageCell {
-    width: 100%;
-    height: 50px;
+    width: 70%;
+    height: 100%;
+    margin-left: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .exampleImageCell img {
-    width: 75%;
-    height: 50%;
+    width: 100%;
+    height: 22px;
+}
+
+.cheatRow {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+    margin-bottom: 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.cheatCopiedOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    opacity: 0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    left: 0;
+    top: 0;
+    z-index: 25;
+    pointer-events: none;
+}
+
+.showCopiedOverlay {
+    animation: showCheatOverlayAnimation 2500ms;
+}
+
+@keyframes showCheatOverlayAnimation {
+    0% {opacity: 100%}
+    50% {opacity: 100%}
+    100% {opacity: 0%}
 }
 
 .cheatRow.highlight {
-    background-color: rgba(255, 255, 255, 0.438);
+    border-color: whitesmoke;
+    border-style: solid;
+    margin-left: -1px;
+    margin-right: -1px;
+    border-width: 1px;
 }
 
 .cheatExplanation {
     width: 100%;
+    font-size: 18px;
+}
+
+.exampleCopy {
+    margin-left: 15px;
+    margin-right: 15px;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.clearButton {
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    margin-top: 8px;
+}
+
+.clearButton.hidden {
+    display: none;
+}
+
+.clearButton svg {
+    width: 100%;
+    height: 100%;
+}
+
+.playButton {
+    width: 35px;
+    height: 20px;
+}
+
+@keyframes showOverlay-keyframes {
+    from {background-color: rgb(0, 0, 0, 0.0);}
+    to {background-color: rgb(0, 0, 0, 0.8);}
+}
+
+@keyframes fadeIn-keyframes {
+    from { opacity: 0%; }
+    to { opacity: 100%; }
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.8);
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    margin: 0;
+    animation: showOverlay-keyframes 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shareModal {
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    border: solid;
+    border-radius: 10px;
+    animation: fadeIn-keyframes 200ms;
+    position: relative;
+    z-index: 15;
+    display: flex;
+}
+
+.shareModalRow {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.shareModal input {
+    border-style: solid;
+    padding: 10px;
+    border-color: white;
+    border-width: 2px;
+    color: white;
+    background-color: black;
+    width: 100%;
+}
+
+.actionButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

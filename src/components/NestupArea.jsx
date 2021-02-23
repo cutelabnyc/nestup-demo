@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NestupDrum } from "./NestupDrum";
-import { SharableContext } from "../contexts/sharable";
-import { ShareButton } from "./ShareButton";
-import { ExportButton } from "./ExportButton";
 import { OneFourChooser } from "./OneFourChooser";
 import { SamplerManager } from "../engine/samplerManager";
-
-const loc = new URL(window.location.href);
-const encodedState = loc.searchParams.get("state");
-let state;
-if (encodedState) {
-	try {
-		state = JSON.parse(atob(encodedState));
-	} catch (e) {}
-}
+import { ActionMenu } from "./ActionMenu";
 
 export const NestupArea = ({ audioManager, state, dispatch }) => {
     const [samplerManager, setSamplerManager] = useState(null);
@@ -25,15 +14,31 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
     useEffect(() => {
         let newSamplerManager = new SamplerManager(audioManager);
         setSamplerManager(newSamplerManager);
-        if (instrumentId) {
-            samplerManewSamplerManagernager.setInstrument(instrumentId);
-            setVoices(newSamplerManager.getVoices());
+        // if (instrumentId) {
+        //     samplerManewSamplerManagernager.setInstrument(instrumentId);
+        //     setVoices(newSamplerManager.getVoices());
+        // }
+
+        const loc = new URL(window.location.href);
+        const encodedState = loc.searchParams.get("state");
+        let state = undefined;
+        if (encodedState) {
+            try {
+                state = JSON.parse(atob(encodedState));
+            } catch (e) {}
         }
 
-        dispatch({
-            type: "set_instrument_id",
-            id: "basic"
-        });
+        if (state === undefined) {
+            dispatch({
+                type: "set_instrument_id",
+                id: "basic"
+            });
+        } else {
+            dispatch({
+                type: "rehydrate",
+                state
+            });
+        }
     }, []);
 
     useEffect(() => {
@@ -81,13 +86,7 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
                         <NestupDrum voice={voices ? voices[3] : null} onNote={handleNoteEvent} index={3} hidden={oneFourLayout === "one"} />
                     </div>
                 </div>
-                <SharableContext.Consumer>
-                    { ({ state }) => 
-                        <div className="footer">
-                            <ShareButton state={state} />
-                            <ExportButton state={state} />
-                        </div> }
-                </SharableContext.Consumer>
+                <ActionMenu />
             </div>
             <OneFourChooser onSelectIndex={handleIndexSelected}/>
         </div>

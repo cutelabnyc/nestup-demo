@@ -1,15 +1,8 @@
 import React from "react";
-import "./style/sidebar.css";
 import { AudioManagerContext } from "./contexts/audio";
 import { LeftMenu } from "./components/LeftMenu";
 import { NestupArea } from "./components/NestupArea";
-import "./style/nestup-demo.css";
 import { SharableContext } from "./contexts/sharable";
-
-// kick - C2
-// snare - C#2
-// hihat - D2
-// cowbell - D#2 
 
 export const App = ({ audioManager, initialState }) => {
     return (
