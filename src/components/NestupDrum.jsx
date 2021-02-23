@@ -95,7 +95,9 @@ export const NestupDrum = ({ voice, onNote, index, initialState, hidden, big }) 
                         </SharableContext.Consumer>
                         <div className="visualizerContainer">
                             <Visualizer nestup={nestup} activeNoteIndex={activeNote}/>
-                            <button className="clearButton" onClick={clear} hidden={nestup === null || nestup.beatLength === 0} >Clear</button>
+                            <div className={"clearButton " + ((nestup === null || nestup.beatLength === 0) ? "hidden" : "")}  onClick={clear} >
+                                <i className="fas fa-times fa-lg"></i>
+                            </div>
                         </div>
                         <Sequencer 
                             note={voice ? voice.note : null}

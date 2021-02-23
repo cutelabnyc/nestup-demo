@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NestupDrum } from "./NestupDrum";
-import { SharableContext } from "../contexts/sharable";
-import { ShareButton } from "./ShareButton";
-import { ExportButton } from "./ExportButton";
 import { OneFourChooser } from "./OneFourChooser";
 import { SamplerManager } from "../engine/samplerManager";
+import { ActionMenu } from "./ActionMenu";
 
 const loc = new URL(window.location.href);
 const encodedState = loc.searchParams.get("state");
@@ -81,13 +79,7 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
                         <NestupDrum voice={voices ? voices[3] : null} onNote={handleNoteEvent} index={3} hidden={oneFourLayout === "one"} />
                     </div>
                 </div>
-                <SharableContext.Consumer>
-                    { ({ state }) => 
-                        <div className="footer">
-                            <ShareButton state={state} />
-                            <ExportButton state={state} />
-                        </div> }
-                </SharableContext.Consumer>
+                <ActionMenu />
             </div>
             <OneFourChooser onSelectIndex={handleIndexSelected}/>
         </div>

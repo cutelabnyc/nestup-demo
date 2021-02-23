@@ -43,7 +43,7 @@
 }
 
 .nestupVisualizerWrapper{
-    width: 75%;
+    width: 90%;
     height: 30px;
     margin-top: 8px;
     position: relative;
@@ -73,9 +73,15 @@
     flex-wrap: wrap;
 }
 
-.footer {
+.actionMenu {
     display: flex;
     justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+    font-size: 24px;
+}
+.actionMenu * {
+    margin-left: 8px;
 }
 
 .root {
@@ -106,7 +112,6 @@ a {
 
 .picker {
     width: 300px;
-    height: 100%;
 }
 
 .pattern-elt {
@@ -193,6 +198,8 @@ a {
 .visualizerContainer {
     display: flex;
     justify-content: space-evenly;
+    width: 90%;
+    margin: auto;
 }
 
 textarea {
@@ -320,6 +327,7 @@ textarea {
     height: 60px;
     margin-bottom: 8px;
     position: relative;
+    cursor: pointer;
 }
 
 .cheatCopiedOverlay {
@@ -333,6 +341,10 @@ textarea {
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    left: 0;
+    top: 0;
+    z-index: 25;
+    pointer-events: none;
 }
 
 .showCopiedOverlay {
@@ -365,4 +377,83 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.clearButton {
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    margin-top: 8px;
+}
+
+.clearButton.hidden {
+    display: none;
+}
+
+.clearButton svg {
+    width: 100%;
+    height: 100%;
+}
+
+.playButton {
+    width: 35px;
+    height: 20px;
+}
+
+@keyframes showOverlay-keyframes {
+    from {background-color: rgb(0, 0, 0, 0.0);}
+    to {background-color: rgb(0, 0, 0, 0.8);}
+}
+
+@keyframes fadeIn-keyframes {
+    from { opacity: 0%; }
+    to { opacity: 100%; }
+}
+
+.overlay {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0, 0.8);
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    margin: 0;
+    animation: showOverlay-keyframes 200ms;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shareModal {
+    width: 400px;
+    height: 200px;
+    background-color: black;
+    border: solid;
+    border-radius: 10px;
+    animation: fadeIn-keyframes 200ms;
+    position: relative;
+    z-index: 15;
+    display: flex;
+}
+
+.shareModalRow {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.shareModal input {
+    border-style: solid;
+    padding: 10px;
+    border-color: white;
+    border-width: 2px;
+    color: white;
+    background-color: black;
+    width: 100%;
 }

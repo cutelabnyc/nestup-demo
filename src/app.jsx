@@ -1,9 +1,7 @@
 import React from "react";
-import "./style/sidebar.css";
 import { AudioManagerContext } from "./contexts/audio";
 import { LeftMenu } from "./components/LeftMenu";
 import { NestupArea } from "./components/NestupArea";
-import "./style/nestup-demo.css";
 import { SharableContext } from "./contexts/sharable";
 
 // kick - C2
