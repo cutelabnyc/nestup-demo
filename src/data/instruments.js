@@ -133,5 +133,33 @@ export const instruments = [
             F3: "https://nestup.s3.amazonaws.com/knock-f3.wav",
             G3: "https://nestup.s3.amazonaws.com/knock-g3.wav"
         }
+    },
+    {
+        id: "glitchy",
+        name: "Glitchy Noisy",
+        voices: [
+            {
+                note: "C3",
+                name: "Kik"
+            }, 
+            {
+                note: "D3",
+                name: "Tomm",
+            },
+            {
+                note: "F3",
+                name: "Swell"
+            },
+            {
+                note: "G3",
+                name: "Chirp"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/demoKick.aif",
+            D3: "https://nestup.s3.amazonaws.com/demoTom.aif",
+            F3: "https://nestup.s3.amazonaws.com/demoSwell.aif",
+            G3: "https://nestup.s3.amazonaws.com/demoChirp.aif"
+        }
     }
 ];
