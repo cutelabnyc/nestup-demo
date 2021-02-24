@@ -193,6 +193,37 @@ a {
     place-content: center;
     place-items: center;
     height: 100vh;
+    color: whitesmoke;
+}
+
+.oneFourContainer .one {
+    margin-bottom: 15px;
+}
+
+.oneFourContainer .four {
+    margin-top: 15px;
+}
+
+.sideActionButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 75px;
+    font-size: large;
+    margin-right: 2em;
+    padding-left: 15px;
+    border-left: 2px solid transparent;
+}
+
+.sideActionButton.selected {
+    border-left: orange solid 2px;
+    color: orange;
+}
+
+.sideActionButton svg {
+    width: 28px;
+    margin-left: 8px;
 }
 
 .visualizerContainer {
