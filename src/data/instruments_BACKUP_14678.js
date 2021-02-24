@@ -135,16 +135,28 @@ export const instruments = [
         }
     },
     {
+<<<<<<< HEAD
+        id: "glitchy",
+=======
         id: "glitchyNoisy",
+>>>>>>> dev
         name: "Glitchy Noisy",
         voices: [
             {
                 note: "C3",
+<<<<<<< HEAD
+                name: "Kik"
+            }, 
+            {
+                note: "D3",
+                name: "Tomm",
+=======
                 name: "Kick"
             }, 
             {
                 note: "D3",
                 name: "Long",
+>>>>>>> dev
             },
             {
                 note: "F3",
@@ -156,10 +168,17 @@ export const instruments = [
             }
         ],
         urls: {
+<<<<<<< HEAD
+            C3: "https://nestup.s3.amazonaws.com/demoKick.aif",
+            D3: "https://nestup.s3.amazonaws.com/demoTom.aif",
+            F3: "https://nestup.s3.amazonaws.com/demoSwell.aif",
+            G3: "https://nestup.s3.amazonaws.com/demoChirp.aif"
+=======
             C3: "https://nestup.s3.amazonaws.com/glitchWavs/glitchLow.wav",
             D3: "https://nestup.s3.amazonaws.com/glitchWavs/glitchLong.wav",
             F3: "https://nestup.s3.amazonaws.com/glitchWavs/glitchSwell.wav",
             G3: "https://nestup.s3.amazonaws.com/glitchWavs/glitchChirp.wav"
+>>>>>>> dev
         }
     }
 ];
