@@ -88,7 +88,7 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
                 </div>
                 <ActionMenu />
             </div>
-            <OneFourChooser onSelectIndex={handleIndexSelected}/>
+            <OneFourChooser onSelectIndex={handleIndexSelected} selectedIndex={oneFourLayout === "one" ? 0 : 1}/>
         </div>
     );
 };

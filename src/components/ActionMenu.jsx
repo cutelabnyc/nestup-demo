@@ -3,11 +3,14 @@ import { SharableContext } from "../contexts/sharable";
 import { ShareButton } from "./ShareButton";
 import { ExportButton } from "./ExportButton";
 import { PlayButton } from "./PlayButton";
+import { AudioManagerContext } from "../contexts/audio";
 
 export const ActionMenu = () => {
     return (
                 <div className="actionMenu">
-                    <PlayButton />
+                    <AudioManagerContext.Consumer>
+                        {value => <PlayButton audioManager={value} />}
+                    </AudioManagerContext.Consumer>
                     <div>120 bpm</div>
                     <div>|</div>
                     <ShareButton />
