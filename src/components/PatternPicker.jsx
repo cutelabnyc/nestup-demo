@@ -3,7 +3,7 @@ import { patterns } from "../data/patterns";
 
 export const PatternPicker = ({ audioManager, dispatch }) => {
 
-    const handlePick = (patterns) => {
+    const handlePick = ({ pattern: patterns, instrument }) => {
         if (audioManager.state !== "running") {
             audioManager.start();
         }
@@ -21,6 +21,13 @@ export const PatternPicker = ({ audioManager, dispatch }) => {
             });
         }
 
+        if (instrument) {
+            dispatch({
+                type: "set_instrument_id",
+                id: instrument
+            });
+        }
+
         dispatch({
             type: "increment_preset"
         });
@@ -28,7 +35,10 @@ export const PatternPicker = ({ audioManager, dispatch }) => {
     
     const patternElts = patterns.map((p, idx) => {
         return (
-            <p key={idx} className="pattern-elt" onClick={() => { handlePick(p.pattern) }}>{p.title}</p>
+            <p key={idx} className="pattern-elt" onClick={() => { handlePick(p) }}>
+                {p.title}
+                {!!p.instrument ? <i className="fab fa-itunes-note"></i> : null}
+            </p>
         )
     });
 

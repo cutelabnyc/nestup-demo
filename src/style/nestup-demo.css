@@ -511,3 +511,7 @@ textarea {
     align-items: center;
     cursor: pointer;
 }
+
+.pattern-elt svg {
+    margin-left: 8px;
+}
