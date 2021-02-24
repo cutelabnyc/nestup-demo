@@ -19,23 +19,32 @@ function writeNestupsAsMidi(nestups, pitches, ticks) {
     
         let tickCounter = 0;
         let noteStartTick = 0;
+        let hasNoteOn = false;
         midiLikeEvents.forEach((event) => {
     
             if (event.on) {
                 noteStartTick = event.time;
+                hasNoteOn = true;
             }
     
             else {
                 const duration = (event.time) - noteStartTick;
                 const wait = noteStartTick - tickCounter;
     
-                track.addEvent(new midiWriter.NoteEvent({
+                track.addEvent(new midiWriter.NoteOnEvent({
                     pitch: pitch,
-                    duration: "T" + duration,
-                    wait: "T" + wait
+                    // duration: "T" + duration,
+                    startTick: noteStartTick
+                }));
+
+                track.addEvent(new midiWriter.NoteOffEvent({
+                    pitch: pitch,
+                    tick: event.time,
+                    duration: "T" + duration
                 }));
     
                 tickCounter += (wait + duration);
+                hasNoteOn = false;
             }
         });
 
