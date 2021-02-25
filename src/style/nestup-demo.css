@@ -8,6 +8,7 @@
 .nestup-demo-root {
     display: flex;
     justify-content: left;
+    margin-bottom: 2em;
 }
 
 .nestup-drum {
@@ -15,7 +16,7 @@
     flex-direction: column;
     width: 400px;
     margin: 10px;
-    height: 350px;
+    height: 35vh;
 }
 
 .codeFrame {
@@ -35,7 +36,7 @@
 
 .nestup-drum.big {
     width: 800px;
-    height: 700px;
+    height: 70vh;
 }
 
 .nestup-drum.hidden {
@@ -68,7 +69,7 @@
 
 .code-container {
     width: 850px;
-    height: 750px;
+    height: 72vh;
     display: flex;
     flex-wrap: wrap;
     margin-left: 6em;
@@ -225,12 +226,29 @@ a {
     font-size: large;
     margin-right: 2em;
     padding-left: 15px;
-    border-left: 2px solid transparent;
+    padding-right: 8px;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.sideActionButton .oneFourIndicator {
+    width: 55%;
+    margin: auto;
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
+    background-color: transparent;
 }
 
 .sideActionButton.selected {
-    border-left: orange solid 2px;
     color: orange;
+}
+
+
+.sideActionButton.selected .oneFourIndicator {
+    border-bottom: orange solid 2px;
+    background-color: orange;
 }
 
 .sideActionButton svg {
