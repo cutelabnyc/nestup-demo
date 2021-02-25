@@ -78,6 +78,7 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
     return (
         <div className="nestupArea">
             <div className="vertical-align">
+                <h1 className="title">Nestup — A Language for Musical Rhythms</h1>
                 <div className="nestup-demo-root">
                     <div className={"code-container"}>
                         <NestupDrum voice={voices ? voices[0] : null} onNote={handleNoteEvent} index={0} big={oneFourLayout === "one"}/>
