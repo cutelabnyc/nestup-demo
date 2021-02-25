@@ -3,7 +3,8 @@ import React, { useState, useRef } from "react";
 function makeShareLink(state) {
     const substate = {
         sequences: state.sequences,
-        instrument: state.instrument
+        instrument: state.instrument,
+        tempo: state.tempo
     };
     const encodedState = btoa(Buffer.from(JSON.stringify(substate), "utf8"));
     let currentLocation = new URL(window.location.href);

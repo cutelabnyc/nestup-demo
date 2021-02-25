@@ -80,7 +80,11 @@
     color: whitesmoke;
     font-size: 24px;
 }
-.actionMenu * {
+.actionMenu > * {
+    margin-left: 24px;
+}
+
+.actionMenu svg {
     margin-left: 8px;
 }
 
@@ -112,32 +116,36 @@ a {
 
 .picker {
     width: 300px;
+    color: whitesmoke;
+    font-size: large;
+    padding-left: 2em;
 }
 
 .pattern-elt {
     width: 100%;
-    padding-top: 5px;
+    padding-top: 0.5em;
     margin: 0;
     cursor: pointer;
 }
 
 .pattern-elt:hover {
-    color: #ffffff;
+    color: orange;
 }
 
 .instrument-elt {
     width: 100%;
-    padding-top: 5px;
+    padding-top: 0.5em;
     margin: 0;
     cursor: pointer;
 }
 
 .instrument-elt:hover {
-    color: #ffffff;
+    color: orange;
 }
 
 .instrument-elt.active {
     text-decoration: underline;
+    font-weight: bold;
 }
 
 .leftMenu {
@@ -510,4 +518,35 @@ textarea {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+}
+
+.pattern-elt svg {
+    margin-left: 8px;
+}
+
+.tempoInput {
+    border: none;
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 24px;
+    width: 4.0em;
+    cursor: ns-resize;
+    -webkit-appearance: none;
+    outline: none;
+    margin-left: 2px;
+    margin-right: 36px;
+}
+
+.tempoInput:focus {
+    border: none;
+}
+
+.draggableNumberForm {
+    margin-left: 8px;
+}
+
+.about {
+    font-size: large;
+    padding-left: 1em;
+    padding-right: 1em;
 }

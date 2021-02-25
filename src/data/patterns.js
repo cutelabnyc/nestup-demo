@@ -10,14 +10,16 @@ export const patterns = [
         pattern: [
             "[4] {4}",
             "[4] {5}",
-        ]
+        ],
+        instrument: "marimba"
     },
     {
         title: "3:4",
         pattern: [
             "[4] {3}",
             "[4] {4}",
-        ]
+        ],
+        instrument: "knock"
     },
     {
         title: "3:5",
