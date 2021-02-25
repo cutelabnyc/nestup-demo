@@ -43,7 +43,7 @@ export const PatternPicker = ({ audioManager, dispatch }) => {
     });
 
     return (
-        <div className="picker bm-item-list">
+        <div className="picker">
             {patternElts}
         </div>
     );
