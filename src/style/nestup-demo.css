@@ -462,8 +462,14 @@ textarea {
 }
 
 @keyframes playbutton-wiggle {
-    from {transform: scale(1.0, 1.0)}
-    to {transform: scale(1.5, 1.5)}
+    from {
+        color: whitesmoke;
+        transform: scale(1.0, 1.0);
+    }
+    to {
+        color: orange;
+        transform: scale(1.5, 1.5);
+    }
 }
 
 .playButton.pulsing {

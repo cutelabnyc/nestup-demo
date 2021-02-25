@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const style = {
-    fill: "#f1f1f1",
+    fill: "currentColor",
     stroke: "none",
     strokeWidth: "0px"
 };
