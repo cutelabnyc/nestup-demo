@@ -106,7 +106,9 @@ export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index,
 
     return (
         <div className="codeFrame">
-            <textarea name={ name } ref= { textAreaRef } />
+            <div className="codeMirrorSizer" >
+                <textarea name={ name } ref= { textAreaRef } />
+            </div>
             <div className="codeFrameFooter">
                 <div className={"errorBox " + (!!mark ? "active" : "")}>{mark ? mark.message : ""}</div>
                 <div 
