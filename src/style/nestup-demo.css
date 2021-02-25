@@ -7,7 +7,7 @@
 
 .nestup-demo-root {
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .nestup-drum {
@@ -67,10 +67,11 @@
 }
 
 .code-container {
-    width: 840px;
+    width: 850px;
     height: 750px;
     display: flex;
     flex-wrap: wrap;
+    margin-left: 6em;
 }
 
 .actionMenu {
@@ -79,6 +80,7 @@
     align-items: center;
     color: whitesmoke;
     font-size: 24px;
+    width: 80%;
 }
 .actionMenu > * {
     margin-left: 24px;
@@ -166,6 +168,8 @@ a {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-block-start: 1.25em;
+    margin-block-end: 1.25em;
 }
 
 .menuHeader p {
@@ -549,4 +553,9 @@ textarea {
     font-size: large;
     padding-left: 1em;
     padding-right: 1em;
+}
+
+.title {
+    color: whitesmoke;
+    margin-left: 5em;
 }
