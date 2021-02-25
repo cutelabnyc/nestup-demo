@@ -161,5 +161,33 @@ export const instruments = [
             F3: "https://nestup.s3.amazonaws.com/glitchWavs/glitchSwell.wav",
             G3: "https://nestup.s3.amazonaws.com/glitchWavs/glitchChirp.wav"
         }
+    },
+    {
+        id: "808-A",
+        name: "808 Kit A",
+        voices: [
+            {
+                note: "C3",
+                name: "Kick"
+            }, 
+            {
+                note: "D3",
+                name: "Snare",
+            },
+            {
+                note: "F3",
+                name: "Clap"
+            },
+            {
+                note: "G3",
+                name: "Hat"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/ProducerSpot-808-Drums/Kicks/808-kick-05.wav",
+            D3: "https://nestup.s3.amazonaws.com/ProducerSpot-808-Drums/Snares/808-snare-03.wav",
+            F3: "https://nestup.s3.amazonaws.com/ProducerSpot-808-Drums/Claps/808-clap-01.wav",
+            G3: "https://nestup.s3.amazonaws.com/ProducerSpot-808-Drums/Hats/808-hat-22.wav",
+        }
     }
 ];
