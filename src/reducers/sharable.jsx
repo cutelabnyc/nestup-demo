@@ -7,7 +7,8 @@ export function makeInititalSharableState(nestupCount) {
     return {
         sequences,
         presetSequence: 0,
-        instrument: null
+        instrument: null,
+        tempo: 120
     };
 }
 
@@ -31,6 +32,11 @@ export function sharableReducer(state, action) {
             const { id } = action;
             newState = Object.assign({}, state, { instrument: id });
             return newState;
+
+        case "set_tempo":
+            const { tempo } = action;
+            newState = Object.assign({}, state, { tempo });
+            return newState;
         
         case "rehydrate":
             const { state: oldState } = action;
@@ -40,9 +46,10 @@ export function sharableReducer(state, action) {
                     {},
                     state,
                     {
-                        instrument: oldState.instrument,
+                        instrument: oldState.instrument || "basic",
                         sequences: oldState.sequences.slice(),
-                        presetSequence: (state.presetSequence + 1)
+                        presetSequence: (state.presetSequence + 1),
+                        tempo: (oldState.tempo || 120)
                     });
                 return newState;
             } catch (e) {

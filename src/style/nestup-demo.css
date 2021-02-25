@@ -80,7 +80,11 @@
     color: whitesmoke;
     font-size: 24px;
 }
-.actionMenu * {
+.actionMenu > * {
+    margin-left: 24px;
+}
+
+.actionMenu svg {
     margin-left: 8px;
 }
 
@@ -513,5 +517,26 @@ textarea {
 }
 
 .pattern-elt svg {
+    margin-left: 8px;
+}
+
+.tempoInput {
+    border: none;
+    background-color: transparent;
+    color: whitesmoke;
+    font-size: 24px;
+    width: 4.0em;
+    cursor: ns-resize;
+    -webkit-appearance: none;
+    outline: none;
+    margin-left: 2px;
+    margin-right: 36px;
+}
+
+.tempoInput:focus {
+    border: none;
+}
+
+.draggableNumberForm {
     margin-left: 8px;
 }
