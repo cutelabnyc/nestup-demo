@@ -28,15 +28,16 @@ export const OneFourChooser = ({ selectedIndex, onSelectIndex }) => {
     return (
         <div className="oneFourContainer">
             <div className={"one sideActionButton " + (ownSelectedIndex === 0 ? "selected" : "")} onClick={() => handleButtonPress(0)}>
-                One
+                1
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27">
                     <g style={(ownSelectedIndex === 0 ? orangeStyle : style)}>
                         <rect width="27" height="27" />
                     </g>
                 </svg>
+                <div className="oneFourIndicator"></div>
             </div>
             <div className={"four sideActionButton " + (ownSelectedIndex === 1 ? "selected" : "")} onClick={() => handleButtonPress(1)}>
-                Four
+                4
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27">
                 <g style={(ownSelectedIndex === 1 ? orangeStyle : style)}>
                         <rect width="12" height="12" />
@@ -45,6 +46,7 @@ export const OneFourChooser = ({ selectedIndex, onSelectIndex }) => {
                         <rect width="12" height="12" x="15" y="15"/>
                     </g>
                 </svg>
+                <div className="oneFourIndicator"></div>
             </div>
         </div>
     )
