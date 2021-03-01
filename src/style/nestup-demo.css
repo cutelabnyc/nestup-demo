@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    font-family: "Jost";
+}
+
 .vertical-align {
     display: flex;
     flex-direction: column;
@@ -63,6 +68,10 @@
     margin-right: 15px;
 }
 
+.CodeMirror * {
+    font-family: monospace;
+}
+
 .CodeMirror {
     background-color: transparent;
     color: whitesmoke;
@@ -111,10 +120,6 @@
 body {
     margin: 0;
     padding: 0;
-}
-
-* {
-    box-sizing: border-box;
 }
   
 #page-wrap {
