@@ -172,6 +172,10 @@ a {
 .leftMenu {
     width: 25%;
     background: #26264A;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .nestupArea {
@@ -181,6 +185,7 @@ a {
 
 .App {
     display: flex;
+    height: 100vh;
 }
 
 .menuHeader {
@@ -192,7 +197,7 @@ a {
 }
 
 .menuHeader p {
-    font-size: 24px;
+    font-size: 20px;
     color: whitesmoke;
     padding-left: 3px;
     padding-right: 3px;
@@ -211,6 +216,16 @@ a {
     color: whitesmoke;
     font-size: 16px;
     padding: 8px;
+    overflow-y: auto;
+}
+
+.leftMenuPane::-webkit-scrollbar {
+    background: #26264A;
+    width: 0.3em;
+}
+
+.leftMenuPane::-webkit-scrollbar-thumb {
+    background: whitesmoke;
 }
 
 .oneFourContainer {
