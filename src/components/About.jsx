@@ -13,7 +13,7 @@ export const About = () => {
                 If you're new to Nestup, try out a few presets to see what the language can do. The cheat sheet will give you a quick reference for some of the basic language features, and <a href="https://github.com/cutelabnyc/nested-tuplets">our GitHub page</a> has more in-depth documentation.
             </p>
             <p>
-                You can read a lot more about Nestup <a href="https://github.com/cutelabnyc/nested-tuplets">on our GitHub page</a>.
+                Seriously, check out <a href="https://github.com/cutelabnyc/nested-tuplets">our GitHub page</a>.
             </p>
             <p>
                 If you like this project and want to support it, consider buying our <a href="brokenlink">Max for Live device</a>, which puts Nestup directly into Ableton Live, along with some other fun features.

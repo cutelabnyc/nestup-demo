@@ -107,6 +107,31 @@ export const instruments = [
         }
     },
     {
+        id: "duck synth",
+        name: "Duck Synth",
+        voices: [
+            {
+                note: "B2",
+                name: "B2"
+            }, 
+            {
+                note: "C3",
+                name: "C3",
+            },
+            {
+                note: "E3",
+                name: "E3"
+            },
+            {
+                note: "F#3",
+                name: "F#3"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/duckSound.wav"
+        }
+    },
+    {
         id: "knock",
         name: "Knock Knock",
         voices: [
@@ -188,6 +213,62 @@ export const instruments = [
             D3: "https://nestup.s3.amazonaws.com/ProducerSpot-808-Drums/Snares/808-snare-03.wav",
             F3: "https://nestup.s3.amazonaws.com/ProducerSpot-808-Drums/Claps/808-clap-01.wav",
             G3: "https://nestup.s3.amazonaws.com/ProducerSpot-808-Drums/Hats/808-hat-22.wav",
+        }
+    },
+    {
+        id: "House-A",
+        name: "House Kit A",
+        voices: [
+            {
+                note: "C3",
+                name: "Kick"
+            }, 
+            {
+                note: "D3",
+                name: "Organ",
+            },
+            {
+                note: "F3",
+                name: "Clap"
+            },
+            {
+                note: "G3",
+                name: "Hat"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Kicks/House%20Kick%2001.wav",
+            D3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/SFX/House%20SFX%2009.wav",
+            F3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Claps/House%20Clap%2013.wav",
+            G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2003.wav",
+        }
+    },
+    {
+        id: "House-B",
+        name: "House Kit B",
+        voices: [
+            {
+                note: "C3",
+                name: "Kick"
+            }, 
+            {
+                note: "D3",
+                name: "Tom",
+            },
+            {
+                note: "F3",
+                name: "Clap"
+            },
+            {
+                note: "G3",
+                name: "Hat"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Kicks/House%20Kick%2005.wav",
+            D3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Toms/House%20Tom%2005.wav",
+            F3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Snares%20&%20Rims/House%20Snare%2021.wav",
+            G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2008.wav",
         }
     }
 ];
