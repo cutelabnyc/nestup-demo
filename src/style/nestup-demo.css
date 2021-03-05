@@ -103,7 +103,6 @@
     align-items: center;
     color: whitesmoke;
     font-size: 24px;
-    width: 80%;
 }
 .actionMenu > * {
     margin-left: 24px;
@@ -197,7 +196,7 @@ a {
 }
 
 .menuHeader p {
-    font-size: 20px;
+    font-size: 24px;
     color: whitesmoke;
     padding-left: 3px;
     padding-right: 3px;
@@ -614,6 +613,7 @@ textarea {
 
 .title {
     color: whitesmoke;
-    margin-left: 5em;
+    margin: 0 auto;
+    padding: 0 20px;
     font-family: "Spartan";
 }
