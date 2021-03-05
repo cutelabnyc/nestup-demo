@@ -107,6 +107,31 @@ export const instruments = [
         }
     },
     {
+        id: "duck synth",
+        name: "Duck Synth",
+        voices: [
+            {
+                note: "B2",
+                name: "B2"
+            }, 
+            {
+                note: "C3",
+                name: "C3",
+            },
+            {
+                note: "E3",
+                name: "E3"
+            },
+            {
+                note: "F#3",
+                name: "F#3"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/duckSound.wav"
+        }
+    },
+    {
         id: "knock",
         name: "Knock Knock",
         voices: [
