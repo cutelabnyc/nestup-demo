@@ -19,8 +19,8 @@
 .nestup-drum {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    margin: 10px;
+    width: 48%;
+    margin: 1%;
     height: 35vh;
 }
 
