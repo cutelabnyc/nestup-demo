@@ -87,6 +87,7 @@ export const patterns = [
     },
     {
         title: "Leave Some Space",
+        instrument: "glitchyNoisy",
         pattern: [
 `[15]{15}
 
