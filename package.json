@@ -1,8 +1,8 @@
 {
-  "name": "webpack-react",
+  "name": "nestup-demo-site",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Michael Pontus <m.pontus@gmail.com>",
+  "author": "Sam Tarakajian <starakajian@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
