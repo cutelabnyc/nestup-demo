@@ -1,15 +1,15 @@
 {
-  "name": "webpack-react",
+  "name": "nestup-demo-site",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Michael Pontus <m.pontus@gmail.com>",
+  "author": "Sam Tarakajian <starakajian@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development"
   },
   "dependencies": {
-    "@cutelab/nestup": "^0.4.6",
+    "@cutelab/nestup": "^0.5.7",
     "@fortawesome/fontawesome-free": "^5.15.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
