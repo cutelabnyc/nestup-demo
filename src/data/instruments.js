@@ -270,5 +270,33 @@ export const instruments = [
             F3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Snares%20&%20Rims/House%20Snare%2021.wav",
             G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2008.wav",
         }
+    },
+    {
+        id: "Hard-A",
+        name: "Hard Kit A",
+        voices: [
+            {
+                note: "C3",
+                name: "Kick"
+            }, 
+            {
+                note: "D3",
+                name: "Tom",
+            },
+            {
+                note: "F3",
+                name: "Clap"
+            },
+            {
+                note: "G3",
+                name: "Hat"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/splice/kick-01.wav",
+            D3: "https://nestup.s3.amazonaws.com/splice/snare-01.wav",
+            F3: "https://nestup.s3.amazonaws.com/splice/voice-01.wav",
+            G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2020.wav",
+        }
     }
 ];
