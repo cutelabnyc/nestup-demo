@@ -298,5 +298,59 @@ export const instruments = [
             F3: "https://nestup.s3.amazonaws.com/splice/voice-01.wav",
             G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2020.wav",
         }
+    },
+    {
+        id: "Hard-B",
+        name: "Hard Kit B",
+        voices: [
+            {
+                note: "C3",
+                name: "Kick"
+            }, 
+            {
+                note: "D3",
+                name: "Snare",
+            },
+            {
+                note: "F3",
+                name: "Tom"
+            },
+            {
+                note: "G3",
+                name: "Hat-2"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/splice/kick-02.wav",
+            D3: "https://nestup.s3.amazonaws.com/splice/snare-02.wav",
+            F3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Toms/House%20Tom%2012.wav",
+            G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2012.wav",
+        }
+    },
+    {
+        id: "Voices-A",
+        name: "Voices",
+        voices: [
+            {
+                note: "C3",
+                name: "Ah-1"
+            }, 
+            {
+                note: "G2",
+                name: "Ah-2",
+            },
+            {
+                note: "C4",
+                name: "Oo-1"
+            },
+            {
+                note: "G4",
+                name: "Oo-2"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/splice/voice-03.wav",
+            C4: "https://nestup.s3.amazonaws.com/splice/voice-04.wav"
+        }
     }
 ];
