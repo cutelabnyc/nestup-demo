@@ -281,11 +281,11 @@ export const instruments = [
             }, 
             {
                 note: "D3",
-                name: "Tom",
+                name: "Snare",
             },
             {
                 note: "F3",
-                name: "Clap"
+                name: "Yelp"
             },
             {
                 note: "G3",
