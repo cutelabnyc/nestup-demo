@@ -19,8 +19,8 @@
 .nestup-drum {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    margin: 10px;
+    width: 48%;
+    margin: 1%;
     height: 35vh;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .nestup-drum.big {
-    width: 800px;
+    width: 100%;
     height: 70vh;
 }
 
@@ -90,11 +90,11 @@
 }
 
 .code-container {
-    width: 850px;
+    width: 100%;
     height: 72vh;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 6em;
+    margin: 0 6em;
 }
 
 .actionMenu {
@@ -103,7 +103,6 @@
     align-items: center;
     color: whitesmoke;
     font-size: 24px;
-    width: 80%;
 }
 .actionMenu > * {
     margin-left: 24px;
@@ -170,17 +169,22 @@ a {
 }
 
 .leftMenu {
-    width: 25%;
+    width: 400px;
     background: #26264A;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .nestupArea {
-    width: 75%;
     background: #333366;
+    flex: 1;
 }
 
 .App {
     display: flex;
+    height: 100vh;
 }
 
 .menuHeader {
@@ -211,6 +215,16 @@ a {
     color: whitesmoke;
     font-size: 16px;
     padding: 8px;
+    overflow-y: auto;
+}
+
+.leftMenuPane::-webkit-scrollbar {
+    background: #26264A;
+    width: 0.3em;
+}
+
+.leftMenuPane::-webkit-scrollbar-thumb {
+    background: whitesmoke;
 }
 
 .oneFourContainer {
@@ -599,6 +613,7 @@ textarea {
 
 .title {
     color: whitesmoke;
-    margin-left: 5em;
+    margin: 0 auto;
+    padding: 0 20px;
     font-family: "Spartan";
 }

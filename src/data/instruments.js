@@ -115,16 +115,16 @@ export const instruments = [
                 name: "B2"
             }, 
             {
-                note: "C3",
-                name: "C3",
-            },
-            {
-                note: "E3",
-                name: "E3"
+                note: "D3",
+                name: "D3",
             },
             {
                 note: "F#3",
                 name: "F#3"
+            },
+            {
+                note: "A3",
+                name: "A3"
             }
         ],
         urls: {
@@ -269,6 +269,88 @@ export const instruments = [
             D3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Toms/House%20Tom%2005.wav",
             F3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Snares%20&%20Rims/House%20Snare%2021.wav",
             G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2008.wav",
+        }
+    },
+    {
+        id: "Hard-A",
+        name: "Hard Kit A",
+        voices: [
+            {
+                note: "C3",
+                name: "Kick"
+            }, 
+            {
+                note: "D3",
+                name: "Snare",
+            },
+            {
+                note: "F3",
+                name: "Yelp"
+            },
+            {
+                note: "G3",
+                name: "Hat"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/splice/kick-01.wav",
+            D3: "https://nestup.s3.amazonaws.com/splice/snare-01.wav",
+            F3: "https://nestup.s3.amazonaws.com/splice/voice-01.wav",
+            G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2020.wav",
+        }
+    },
+    {
+        id: "Hard-B",
+        name: "Hard Kit B",
+        voices: [
+            {
+                note: "C3",
+                name: "Kick"
+            }, 
+            {
+                note: "D3",
+                name: "Snare",
+            },
+            {
+                note: "F3",
+                name: "Tom"
+            },
+            {
+                note: "G3",
+                name: "Hat-2"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/splice/kick-02.wav",
+            D3: "https://nestup.s3.amazonaws.com/splice/snare-02.wav",
+            F3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Toms/House%20Tom%2012.wav",
+            G3: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Hats/House%20HiHat%2012.wav",
+        }
+    },
+    {
+        id: "Voices-A",
+        name: "Voices",
+        voices: [
+            {
+                note: "C3",
+                name: "Ah-1"
+            }, 
+            {
+                note: "G2",
+                name: "Ah-2",
+            },
+            {
+                note: "C4",
+                name: "Oo-1"
+            },
+            {
+                note: "G4",
+                name: "Oo-2"
+            }
+        ],
+        urls: {
+            C3: "https://nestup.s3.amazonaws.com/splice/voice-03.wav",
+            C4: "https://nestup.s3.amazonaws.com/splice/voice-04.wav"
         }
     }
 ];
