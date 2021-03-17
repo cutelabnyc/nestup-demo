@@ -115,16 +115,16 @@ export const instruments = [
                 name: "B2"
             }, 
             {
-                note: "C3",
-                name: "C3",
-            },
-            {
-                note: "E3",
-                name: "E3"
+                note: "D3",
+                name: "D3",
             },
             {
                 note: "F#3",
                 name: "F#3"
+            },
+            {
+                note: "A3",
+                name: "A3"
             }
         ],
         urls: {

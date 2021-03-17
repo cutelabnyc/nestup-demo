@@ -10,6 +10,8 @@ import cheat07 from "../img/cheat-07.png";
 import cheat08 from "../img/cheat-08.png";
 import cheat09 from "../img/cheat-09.png";
 import cheat10 from "../img/cheat-10.png";
+import cheat11 from "../img/cheat-11.png";
+import cheat12 from "../img/cheat-12.png";
 import { CheatRow } from "./CheatRow";
 
 const expressions = [
@@ -21,9 +23,11 @@ const expressions = [
     "[4] {3} [4] {5}",
     "[4] {3 2 {3} }",
     "[4] {3 2:2 {5} }",
-    "[4 [1] [1] {0} [1]]",
+    "[4 [1] ['] [1]]",
     "[4 [1] [1] _ [1] [1]]",
-    "[4 {5 2 [] _ 3 [] }]"
+    "[4 {5 2 [] _ 3 [] }]",
+    "[3]{3 > 1/2}",
+    "['4] [2]"
 ];
 
 const images = [
@@ -38,6 +42,8 @@ const images = [
     cheat08,
     cheat09,
     cheat10,
+    cheat11,
+    cheat12,
 ];
 
 const explanations = [
@@ -51,7 +57,9 @@ const explanations = [
     "A triplet, where the second and third beat have been replaced with a quintuplet over that same time. A total of 6 events.",
     "Three equally long notes in the space of 4 beats (aka a triplet), where the second note is a rest",
     "Four notes in the space of four beats, The second note is tied to the third.",
-    "Five notes in the space of four beats, where the second note is tied to the third."
+    "Five notes in the space of four beats, where the second note is tied to the third.",
+    "Three notes in the space of three beats, offset by half a beat.",
+    "An empty container, four beats long, followed by a note two beats long.",
 ];
 
 export const Cheat = () => {
