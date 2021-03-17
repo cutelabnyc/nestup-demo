@@ -897,10 +897,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@cutelab/nestup@^0.5.9":
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/@cutelab/nestup/-/nestup-0.5.9.tgz#b16137da766686e9303405ad68c2fd8749024c6f"
-  integrity sha512-qYIWBeoAGxcj4Bh4YpOtR0E3LhEQ2ObZt1UUm2ebTAJdRuHSC8vBNRwSsiGI73eUN1wWDs5FWcb9njiW0D/agg==
+"@cutelab/nestup@^0.5.10":
+  version "0.5.10"
+  resolved "https://registry.yarnpkg.com/@cutelab/nestup/-/nestup-0.5.10.tgz#8cf06ebe5f4f13a43f8ae0af6d926b5175899738"
+  integrity sha512-L0HdClp5tedQxqdw3Lro+8ksqWzKkosLHqBllMeFNc+4ZqfpRiGI8LSNTuBi/WGcPXi2/BFOEkoU2YNo07409w==
   dependencies:
     chai "^4.2.0"
     commander "^6.1.0"
