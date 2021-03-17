@@ -76,13 +76,15 @@ export const Cheat = () => {
     });
 
     return (
-        <div className="leftMenuPane">
-            <div className="cheatTable">
-                {elts}
-            </div>
+        <>
             <div className="cheatExplanation">
                 {(hover >= 0) ? explanations[hover] : ""}
             </div>
-        </div>
+            <div className="leftMenuPane">
+                <div className="cheatTable">
+                    {elts}
+                </div>
+            </div>
+        </>
     );
 }
