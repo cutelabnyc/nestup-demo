@@ -258,4 +258,19 @@ export const patterns = [
 }`
         ]
     },
+    {
+        title: "$15 Minimum Wage",
+        instrument: "Hard-B",
+        pattern: [
+`[4] {4}`,
+`['4] {4 4}`,
+`['4] {16
+ 1:2 7:2 {3} 11 13:4 {3}
+}`,
+`[4] {6
+ 3 {3}
+ 4:3 {4}
+}`
+        ]
+    },
 ]
