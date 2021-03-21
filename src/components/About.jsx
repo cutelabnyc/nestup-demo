@@ -4,7 +4,7 @@ export const About = () => {
     return (
         <div className="leftMenuPane about">
             <p>
-                <a href="https://github.com/cutelabnyc/nested-tuplets">Nestup</a> is an experimental markup language for musical rhythms. It's specifically designed to break away from a fixed musical grid
+                <a href="https://github.com/cutelabnyc/nested-tuplets">Nestup</a> is an experimental markup language for musical rhythms. It's specifically designed to break away from a fixed musical grid.
             </p>
             <p>
                 The name is a contraction of <a href="https://en.wikipedia.org/wiki/Tuplet#Nested_tuplets">nested tuplets</a>, which are hard to program on a piano roll but easy to notate with Nestup.

@@ -26,7 +26,7 @@ const expressions = [
     "[4 [1] ['] [1]]",
     "[4 [1] [1] _ [1] [1]]",
     "[4 {5 2 [] _ 3 [] }]",
-    "[3]{3 > 1/2}",
+    "[3] {3 > 1/2}",
     "['4] [2]"
 ];
 
@@ -76,13 +76,15 @@ export const Cheat = () => {
     });
 
     return (
-        <div className="leftMenuPane">
-            <div className="cheatTable">
-                {elts}
-            </div>
+        <>
             <div className="cheatExplanation">
                 {(hover >= 0) ? explanations[hover] : ""}
             </div>
-        </div>
+            <div className="leftMenuPane">
+                <div className="cheatTable">
+                    {elts}
+                </div>
+            </div>
+        </>
     );
 }

@@ -169,7 +169,7 @@ a {
 }
 
 .leftMenu {
-    width: 400px;
+    flex-basis: 400px;
     background: #26264A;
     height: 100vh;
     display: flex;
@@ -376,6 +376,7 @@ textarea {
 .cheatTable {
     margin-left: 0px;
     padding-right: 0px;
+    padding-top: 80px;
 }
 
 .exampleExpression {
@@ -459,8 +460,16 @@ textarea {
 }
 
 .cheatExplanation {
-    width: 100%;
+    width: 375px;
     font-size: 18px;
+    height: 80px;
+    position: absolute;
+    background: #26264A;
+    left: 0;
+    z-index: 1;
+    top: 120px;
+    color: whitesmoke;
+    padding-left: 8px;
 }
 
 .exampleCopy {
