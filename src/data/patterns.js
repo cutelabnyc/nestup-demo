@@ -57,6 +57,7 @@ export const patterns = [
     },
     {
         title: "Boots and cats",
+        instrument: "basic",
         pattern: [
             "[4] {4}",
             "[4] {4 1 ['] 3 [']}",
@@ -65,6 +66,7 @@ export const patterns = [
     },
     {
         title: "Boots and cowbell",
+        instrument: "basic",
         pattern: [
             "[4] {4}",
             "['4] {4 2 [] 4 []}",
