@@ -304,4 +304,16 @@ export const patterns = [
 }`
         ]
     },
+    {
+        title: "Welcome",
+        pattern: [
+`// Nestup makes rhythms by dividing containers.
+// This is a container of size 4, divided into 3 parts.
+
+[4] {3}
+
+// Parse (shift + enter) and press play to see the pattern.
+// Try some presets to see what Nestup can do`,
+        ]
+    },
 ]
