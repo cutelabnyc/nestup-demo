@@ -17,20 +17,20 @@ export const instruments = [
             },
             {
                 note: "D2",
-                name: "Cowbell"
+                name: "Snap"
             }
         ],
         urls: {
-            C1: "https://freesound.org/data/previews/248/248142_3667999-lq.mp3",
-            D1: "https://freesound.org/data/previews/387/387186_7255534-lq.mp3",
+            C1: "https://nestup.s3.amazonaws.com/soundcloud/248142__dpren__fat-kick.wav",
+            D1: "https://nestup.s3.amazonaws.com/soundcloud/387186__alexiero-1__ai-snare-20.wav",
             // You need the ["F#1"] syntax because of the sharp
-            ["F#1"]: "https://freesound.org/data/previews/397/397042_4357738-lq.mp3",
-            D2: "https://freesound.org/data/previews/99/99766_29308-lq.mp3"
+            ["F#1"]: "https://nestup.s3.amazonaws.com/soundcloud/397042__fairhavencollection__mega-hi-hat-1.wav",
+            D2: "https://nestup.s3.amazonaws.com/ProducerSpot-House-Drums/Percussions/House%20Snap%2002.wav"
         }
     },
     {
         id: "edm",
-        name: "EDM Kit",
+        name: "EDM Kit 01",
         voices: [
             {
                 note: "C1",
@@ -46,14 +46,70 @@ export const instruments = [
             },
             {
                 note: "D2",
-                name: "Cowbell"
+                name: "Boop"
             }
         ],
         urls: {
-            C1: "https://freesound.org/data/previews/171/171104_2394245-lq.mp3",
-            D1: "https://freesound.org/data/previews/277/277046_2511427-lq.mp3",
-            ["F#1"]: "https://freesound.org/data/previews/372/372216_6937596-lq.mp3",
-            D2: "https://freesound.org/data/previews/99/99766_29308-lq.mp3"
+            C1: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Kicks/edm-kick-01.wav",
+            D1: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Snares/edm-snare-01.wav",
+            ["F#1"]: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20HiHats/edm-hihat-04.wav",
+            D2: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Percs/edm-perc-01.wav"
+        }
+    },
+    {
+        id: "edm2",
+        name: "EDM Kit 02",
+        voices: [
+            {
+                note: "C1",
+                name: "Kick"
+            }, 
+            {
+                note: "D1",
+                name: "Snare",
+            },
+            {
+                note: "F#1",
+                name: "Hihat"
+            },
+            {
+                note: "D2",
+                name: "Crash"
+            }
+        ],
+        urls: {
+            C1: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Kicks/edm-kick-04.wav",
+            D1: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Snares/edm-snare-12.wav",
+            ["F#1"]: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20HiHats/edm-hihat-43.wav",
+            D2: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Crashes/edm-crash-07.wav"
+        }
+    },
+    {
+        id: "edm3",
+        name: "EDM Kit 03",
+        voices: [
+            {
+                note: "C1",
+                name: "Kick"
+            }, 
+            {
+                note: "D1",
+                name: "Clap",
+            },
+            {
+                note: "F#1",
+                name: "Low Bongo"
+            },
+            {
+                note: "D2",
+                name: "High Bongo"
+            }
+        ],
+        urls: {
+            C1: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Kicks/edm-kick-05.wav",
+            D1: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Claps/edm-clap-15.wav",
+            ["F#1"]: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Percs/edm-perc-31.wav",
+            D2: "https://nestup.s3.amazonaws.com/ProducerSpot-EDM-Drums/EDM%20Percs/edm-perc-32.wav"
         }
     },
     {
@@ -61,37 +117,38 @@ export const instruments = [
         name: "Grand Piano",
         voices: [
             {
-                note: "E3",
-                name: "E3"
+                note: "A2",
+                name: "A2"
             }, 
             {
+                note: "C3",
+                name: "C3",
+            },
+            {
+                note: "E3",
+                name: "E3"
+            },
+            {
                 note: "G3",
-                name: "G3",
-            },
-            {
-                note: "B3",
-                name: "B3"
-            },
-            {
-                note: "C#4",
-                name: "C#4"
+                name: "G3"
             }
         ],
         urls: {
-            A3: "https://freesound.org/data/previews/442/442978_9159373-lq.mp3"
+            C3: "https://nestup.s3.amazonaws.com/demo-sounds/pno%20med%20[2021-03-28%20140201].wav"
         }
     },
     {
         id: "marimba",
         name: "Marimba",
+        volume: -9,
         voices: [
             {
                 note: "B2",
                 name: "B2"
             }, 
             {
-                note: "C3",
-                name: "C3",
+                note: "D3",
+                name: "D3",
             },
             {
                 note: "E3",
@@ -103,7 +160,7 @@ export const instruments = [
             }
         ],
         urls: {
-            C3: "https://freesound.org/data/previews/373/373579_2475994-lq.mp3"
+            C3: "https://nestup.s3.amazonaws.com/demo-sounds/marimba%20[2021-03-28%20140200].wav"
         }
     },
     {
@@ -134,6 +191,7 @@ export const instruments = [
     {
         id: "knock",
         name: "Knock Knock",
+        volume: 6,
         voices: [
             {
                 note: "C3",

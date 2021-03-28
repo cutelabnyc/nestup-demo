@@ -27,6 +27,32 @@ export const patterns = [
         ]
     },
     {
+        title: "Stepping Out Alt",
+        instrument: "edm3",
+        pattern: [
+`[5] {2}
+[3] {4}
+[5] {2}
+[3] {6
+ 1:2 {3}
+ 5:2 {1}
+}`,
+`[4] {8 
+  2 {3}
+  6 {5}
+}
+[4] {8
+  2 {2}
+  4:2 {3}
+  6:3 [[1] [1] {2} [1]]
+}`,
+`[8] {4 > 1/2
+ 2 {2 > 1/2}
+}`,
+`[8] {2}`
+        ]
+    },
+    {
         title: "Accelerate",
         pattern: [
             "[4] {4} [2] {4} [1] {4} [1] {8}"
@@ -65,8 +91,8 @@ export const patterns = [
         ]
     },
     {
-        title: "Boots and cowbell",
-        instrument: "basic",
+        title: "Boots and triplet",
+        instrument: "basic,"
         pattern: [
             "[4] {4}",
             "['4] {4 2 [] 4 []}",
