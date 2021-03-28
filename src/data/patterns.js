@@ -342,11 +342,4 @@ export const patterns = [
 // Try some presets to see what Nestup can do`,
         ]
     },
-    {
-        title: "Problem",
-        pattern: [
-`[4]  {4}`,
-`['8] {4 2}`
-        ]
-    },
 ]
