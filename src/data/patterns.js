@@ -92,7 +92,7 @@ export const patterns = [
     },
     {
         title: "Boots and triplet",
-        instrument: "basic,"
+        instrument: "basic",
         pattern: [
             "[4] {4}",
             "['4] {4 2 [] 4 []}",
