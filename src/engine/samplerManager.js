@@ -36,6 +36,7 @@ export class SamplerManager {
                 urls: instrumentData.urls
             });
             this._samplers[instrumentId] = nextSampler;
+            nextSampler.volume.value = instrumentData.volume || 0;
         }
         
         if (nextSampler) {
