@@ -25,7 +25,7 @@ export const ActionMenu = () => {
                     <SharableContext.Consumer>
                         { ({ state }) => <ExportButton state={state} /> }
                     </SharableContext.Consumer>
-                    <div>Max for Live</div>
+                    <div><a href="https://gumroad.com/l/nestup">Max for Live</a></div>
                 </div>
     )
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CodeMirror from "codemirror/lib/codemirror";
-import "codemirror/lib/codemirror.css"
+import "codemirror/lib/codemirror.css";
+import * as markSelection from "codemirror/addon/selection/mark-selection";
 import { useEffect, useRef } from "react";
 
 export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index, initialText, hidden, mark }) => {
@@ -22,7 +23,8 @@ export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index,
             const myCodeMirror = CodeMirror.fromTextArea(textAreaRef.current, {
                 indentWithTabs: true,
                 lineNumbers: false,
-                tabSize: 2
+                tabSize: 2,
+                styleSelectedText: true
             });
 
             myCodeMirror.on("keydown", (_instance, event) => {
@@ -45,6 +47,14 @@ export const CodeArea = ({ name, onSubmit, audioManager, state, dispatch, index,
                     index: index,
                     text: myCodeMirror.getValue()
                 });
+            });
+
+            myCodeMirror.on("drop", (_editor, ev) => {
+                const data = ev.dataTransfer.getData("text/plain");
+                if (data && data.length) {
+                    myCodeMirror.setValue(data);
+                    ev.preventDefault();
+                }
             });
 
             setCodeMirror(myCodeMirror);

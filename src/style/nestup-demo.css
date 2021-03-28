@@ -89,6 +89,10 @@
     border-color: whitesmoke;
 }
 
+.CodeMirror-selectedtext {
+    color: black;
+}
+
 .code-container {
     width: 100%;
     height: 72vh;
@@ -135,10 +139,9 @@ a {
 }
 
 .picker {
-    width: 300px;
     color: whitesmoke;
     font-size: large;
-    padding-left: 2em;
+    margin-left: 1em;
 }
 
 .pattern-elt {
@@ -213,8 +216,9 @@ a {
 
 .leftMenuPane {
     color: whitesmoke;
-    font-size: 16px;
     padding: 8px;
+    padding-left: 1em;
+    padding-right: 1em;
     overflow-y: auto;
 }
 
@@ -398,6 +402,13 @@ textarea {
     color: whitesmoke;
     background-color: transparent;
     height: auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    cursor: inherit;
+    pointer-events: none;
 }
 
 .exampleImageCell {
@@ -428,7 +439,7 @@ textarea {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(0, 0, 0, 0.85);
     opacity: 0.0;
     display: flex;
     flex-direction: column;
@@ -616,8 +627,6 @@ textarea {
 
 .about {
     font-size: large;
-    padding-left: 1em;
-    padding-right: 1em;
 }
 
 .title {
@@ -625,4 +634,8 @@ textarea {
     margin: 0 auto;
     padding: 0 20px;
     font-family: "Spartan";
+}
+
+.vscroll {
+    overflow-y: auto;
 }

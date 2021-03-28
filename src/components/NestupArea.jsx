@@ -3,6 +3,7 @@ import { NestupDrum } from "./NestupDrum";
 import { OneFourChooser } from "./OneFourChooser";
 import { SamplerManager } from "../engine/samplerManager";
 import { ActionMenu } from "./ActionMenu";
+import { patterns } from "../data/patterns";
 
 export const NestupArea = ({ audioManager, state, dispatch }) => {
     const [samplerManager, setSamplerManager] = useState(null);
@@ -10,6 +11,33 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
     const [presetSequence, setPresetSequence] = useState(-1);
     const [voices, setVoices] = useState(null);
     const [instrumentId, setInstrumentId] = useState(state.instrument);
+
+    function loadWelcome() {
+        if (audioManager.state !== "running") {
+            audioManager.start();
+        }
+
+        const welcome = patterns.find(p => p.title === "Welcome");
+
+        if (!welcome) return;
+    
+        for (let i = 0; i < 4; i++) {
+            let text = "";
+            if (i < welcome.pattern.length) {
+                text = welcome.pattern[i];
+            }
+    
+            dispatch({
+                type: "set_text",
+                index: i,
+                text
+            });
+        }
+    
+        dispatch({
+            type: "increment_preset"
+        });
+    }
 
     useEffect(() => {
         let newSamplerManager = new SamplerManager(audioManager);
@@ -33,6 +61,7 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
                 type: "set_instrument_id",
                 id: "basic"
             });
+            loadWelcome();
         } else {
             dispatch({
                 type: "rehydrate",

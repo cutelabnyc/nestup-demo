@@ -16,7 +16,7 @@ export const About = () => {
                 Seriously, check out <a href="https://github.com/cutelabnyc/nested-tuplets">our GitHub page</a>.
             </p>
             <p>
-                If you like this project and want to support it, consider buying our <a href="brokenlink">Max for Live device</a>, which puts Nestup directly into Ableton Live, along with some other fun features.
+                If you like this project and want to support it, consider buying our <a href="https://gumroad.com/l/nestup">Max for Live device</a>, which puts Nestup directly into Ableton Live, along with some other fun features.
             </p>
             <p>
                 While working on this project, we were heavily inspired by <a href="https://www.tigranhamasyan.com/the-call-within/">Tigran Hamasyan</a>, <a href="https://www.instagram.com/wtfgrooves">@WTFGrooves</a> and <a href="https://www.youtube.com/channel/UCh-PyMficPzVAihCJkFJVAA">David Bruce</a>.

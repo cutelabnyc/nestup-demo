@@ -55,7 +55,33 @@ export const patterns = [
     {
         title: "Accelerate",
         pattern: [
-            "[4] {4} [2] {4} [1] {4} [1] {8}"
+`[4] {4}
+[2] {4}
+[1] {4}
+[1] {8}`
+        ],
+    },
+    {
+        title: "Accelerate 2",
+        pattern: [
+`[4] {2
+ 2 {2
+  2 {2
+   2 {2}
+  }
+ }
+}`
+        ],
+    },
+    {
+        title: "Accelerate 3",
+        pattern: [
+`[4] {2}
+[4, 1/2] {2}
+[4, 1/4] {2}
+[4, 1/8] {2}
+[4, 1/16] {2}
+[4, 1/32] {2}`
         ],
     },
     {
@@ -92,7 +118,7 @@ export const patterns = [
     },
     {
         title: "Boots and triplet",
-        instrument: "basic,"
+        instrument: "basic",
         pattern: [
             "[4] {4}",
             "['4] {4 2 [] 4 []}",
@@ -302,6 +328,18 @@ export const patterns = [
  3 {3}
  4:3 {4}
 }`
+        ]
+    },
+    {
+        title: "Welcome",
+        pattern: [
+`// Nestup makes rhythms by dividing containers.
+// This is a container of size 4, divided into 3 parts.
+
+[4] {3}
+
+// Parse (shift + enter) and press play to see the pattern.
+// Try some presets to see what Nestup can do`,
         ]
     },
 ]
