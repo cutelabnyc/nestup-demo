@@ -20,5 +20,5 @@ export const Instruments = ({ state, dispatch }) => {
         )
     });
 
-    return <div className="picker">{instrumentElts}</div>
+    return <div className="picker leftMenuPane">{instrumentElts}</div>
 }

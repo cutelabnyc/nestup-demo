@@ -19,10 +19,6 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
 
         const welcome = patterns.find(p => p.title === "Welcome");
 
-        patterns.forEach(p => {
-            console.log(p);
-        });
-
         if (!welcome) return;
     
         for (let i = 0; i < 4; i++) {

@@ -43,7 +43,7 @@ export const PatternPicker = ({ audioManager, dispatch }) => {
     });
 
     return (
-        <div className="picker">
+        <div className="leftMenuPane picker">
             {patternElts}
         </div>
     );

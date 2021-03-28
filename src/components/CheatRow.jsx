@@ -24,8 +24,12 @@ export const CheatRow = ({expression, image, onHover}) => {
         }
     };
 
+    const handleDrag = (ev) => {
+        ev.dataTransfer.setData("text/plain", expression);
+    };
+
     return (
-        <div onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleClick} className={"cheatRow " + (hover ? "highlight" : "")}>
+        <div draggable onDragStart={handleDrag} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut} onClick={handleClick} className={"cheatRow " + (hover ? "highlight" : "")}>
             <textarea type="text" className="exampleExpression" ref={ expressionRef } value={expression} readOnly={true}></textarea>
             <div className="exampleImageCell"><img src={image}></img></div>
             <div className="exampleCopy"> <i className="far fa-copy"></i></div>
