@@ -7,56 +7,87 @@ function writeNestupsAsMidi(nestups, pitches, ticks) {
 
     let lastTrack;
     let pairs = nestups.map((nestup, idx) => [nestup, pitches[idx]]);
-    pairs.sort((a, b) => b[0].beatLength - a[0].beatLength);
 
-    // let maxBeatLength = nestups.reduce((acc, cur) => Math.max(acc, cur.beatLength), 0);
-
+    const events = [];
     pairs.forEach(([nestup, pitch]) => {
-        // Assume 4 beats to one measure
-        const track = new midiWriter.Track();
         const scale = nestup.beatLength / 4;
         const midiLikeEvents = nestup.onOffEvents(ticks * scale);
-    
-        let tickCounter = 0;
-        let noteStartTick = 0;
-        let hasNoteOn = false;
         midiLikeEvents.forEach((event) => {
-    
-            if (event.on) {
-                noteStartTick = event.time;
-                hasNoteOn = true;
-            }
-    
-            else {
-                const duration = (event.time) - noteStartTick;
-                const wait = noteStartTick - tickCounter;
-    
-                track.addEvent(new midiWriter.NoteOnEvent({
-                    pitch: pitch,
-                    // duration: "T" + duration,
-                    startTick: noteStartTick
-                }));
-
-                track.addEvent(new midiWriter.NoteOffEvent({
-                    pitch: pitch,
-                    tick: event.time,
-                    duration: "T" + duration
-                }));
-    
-                tickCounter += (wait + duration);
-                hasNoteOn = false;
-            }
+            events.push({event, pitch});
         });
+    });
+    events.sort((a, b) => a.event.time - b.event.time);
 
-        if (lastTrack) {
-            lastTrack.mergeTrack(track);
-        } else {
-            lastTrack = track;
+    // let maxBeatLength = nestups.reduce((acc, cur) => Math.max(acc, cur.beatLength), 0);
+    const track = new midiWriter.Track();
+
+    let noteOnTimes = {};
+    let lastEventTime = 0;
+    events.forEach(({event, pitch}) => {
+        // Assume 4 beats to one measure
+    
+        if (event.on) {
+            track.addEvent(new midiWriter.NoteOnEvent({
+                pitch: pitch,
+                wait: "t" + (event.time - lastEventTime),
+                // duration: "T" + duration,
+                // startTick: event.time
+            }));
+
+            noteOnTimes[pitch] = event.time;
+            lastEventTime = event.time;
         }
+
+        else {
+            const noteStartTick = noteOnTimes[pitch];
+            const duration = (event.time) - noteStartTick;
+
+            track.addEvent(new midiWriter.NoteOffEvent({
+                pitch: pitch,
+                // tick: event.time,
+                // duration: "T" + duration
+                duration: "t" + (event.time - lastEventTime),
+            }));
+
+            lastEventTime = event.time;
+        }
+        // midiLikeEvents.forEach((event) => {
+    
+        //     if (event.on) {
+        //         noteStartTick = event.time;
+        //         hasNoteOn = true;
+        //     }
+    
+        //     else {
+        //         const duration = (event.time) - noteStartTick;
+        //         const wait = noteStartTick - tickCounter;
+    
+        //         track.addEvent(new midiWriter.NoteOnEvent({
+        //             pitch: pitch,
+        //             // duration: "T" + duration,
+        //             startTick: noteStartTick
+        //         }));
+
+        //         track.addEvent(new midiWriter.NoteOffEvent({
+        //             pitch: pitch,
+        //             tick: event.time,
+        //             duration: "T" + duration
+        //         }));
+    
+        //         tickCounter += (wait + duration);
+        //         hasNoteOn = false;
+        //     }
+        // });
+
+        // if (lastTrack) {
+        //     lastTrack.mergeTrack(track);
+        // } else {
+        //     lastTrack = track;
+        // }
     });
 
-    if (lastTrack) {
-        const write = new midiWriter.Writer(lastTrack);
+    if (track) {
+        const write = new midiWriter.Writer(track);
         const midiFileData = write.buildFile();
         const blob = new Blob([midiFileData], {type: "audio/midi;charset=binary"});
         FileSaver.saveAs(blob, "nestup.mid");
@@ -79,6 +110,7 @@ export const ExportButton = ({ state }) => {
         } catch (e) { 
             console.error("Export failed");
             console.error(e);
+            throw e
         }
     }
 
