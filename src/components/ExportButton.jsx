@@ -5,7 +5,6 @@ import { RhythmParser, Nestup } from "@cutelab/nestup/dist/nestup.bundle";
 
 function writeNestupsAsMidi(nestups, pitches, ticks) {
 
-    let lastTrack;
     let pairs = nestups.map((nestup, idx) => [nestup, pitches[idx]]);
 
     const events = [];
@@ -51,39 +50,6 @@ function writeNestupsAsMidi(nestups, pitches, ticks) {
 
             lastEventTime = event.time;
         }
-        // midiLikeEvents.forEach((event) => {
-    
-        //     if (event.on) {
-        //         noteStartTick = event.time;
-        //         hasNoteOn = true;
-        //     }
-    
-        //     else {
-        //         const duration = (event.time) - noteStartTick;
-        //         const wait = noteStartTick - tickCounter;
-    
-        //         track.addEvent(new midiWriter.NoteOnEvent({
-        //             pitch: pitch,
-        //             // duration: "T" + duration,
-        //             startTick: noteStartTick
-        //         }));
-
-        //         track.addEvent(new midiWriter.NoteOffEvent({
-        //             pitch: pitch,
-        //             tick: event.time,
-        //             duration: "T" + duration
-        //         }));
-    
-        //         tickCounter += (wait + duration);
-        //         hasNoteOn = false;
-        //     }
-        // });
-
-        // if (lastTrack) {
-        //     lastTrack.mergeTrack(track);
-        // } else {
-        //     lastTrack = track;
-        // }
     });
 
     if (track) {
