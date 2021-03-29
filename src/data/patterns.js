@@ -98,7 +98,7 @@ export const patterns = [
             "[4] {3}",
             "[4] {4}",
         ],
-        instrument: "knock"
+        instrument: "marimba"
     },
     {
         title: "3:5",
@@ -128,15 +128,16 @@ export const patterns = [
     },
     {
         title: "Back and forth",
+        instrument: "marimba",
         pattern: [
-`[4] {2
-  1 {3}
-}
-`,
-`[4] {2
-  2 {3}
-}
-`,
+            `[4] {2
+            1 {3}
+            }
+            `,
+            `[4] {2
+            2 {3}
+            }
+            `,
         ]
     },
     {
