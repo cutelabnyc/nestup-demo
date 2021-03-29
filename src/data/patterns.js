@@ -340,7 +340,7 @@ export const patterns = [
 [4] {3}
 
 // Parse (shift + enter) and press play to see the pattern.
-// Try some presets to see what Nestup can do`,
+// Try some presets to see what Nestup can do.`,
         ]
     },
 ]
