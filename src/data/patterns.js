@@ -130,14 +130,14 @@ export const patterns = [
         title: "Back and forth",
         instrument: "marimba",
         pattern: [
-            `[4] {2
-            1 {3}
-            }
-            `,
-            `[4] {2
-            2 {3}
-            }
-            `,
+`[4] {2
+1 {3}
+}
+`,
+`[4] {2
+2 {3}
+}
+`,
         ]
     },
     {
