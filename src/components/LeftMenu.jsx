@@ -8,7 +8,7 @@ import { SharableContext } from "../contexts/sharable";
 
 export const LeftMenu = () => {
 
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [selectedIndex, setSelectedIndex] = useState(3);
 
     let viewArea;
     switch (selectedIndex) {

@@ -17,23 +17,33 @@ export const NestupArea = ({ audioManager, state, dispatch }) => {
             audioManager.start();
         }
 
-        const welcome = patterns.find(p => p.title === "Welcome");
+        const welcome = patterns.find(p => p.title === "Slouching Towards Five");
 
         if (!welcome) return;
+
+        const welcomePatterns = welcome.pattern;
+        const instrument = welcome.instrument;
     
         for (let i = 0; i < 4; i++) {
             let text = "";
-            if (i < welcome.pattern.length) {
-                text = welcome.pattern[i];
+            if (i < welcomePatterns.length) {
+                text = welcomePatterns[i];
             }
-    
+
             dispatch({
                 type: "set_text",
                 index: i,
                 text
             });
         }
-    
+
+        if (instrument) {
+            dispatch({
+                type: "set_instrument_id",
+                id: instrument
+            });
+        }
+
         dispatch({
             type: "increment_preset"
         });
