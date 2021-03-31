@@ -82,7 +82,7 @@ export const ExportButton = ({ state }) => {
 
     return (
         <div className="actionButtonContainer" onClick={handleClick}>
-            <p>Save</p>
+            <p>Export MIDI</p>
             <i className="fas fa-download"></i>
         </div>
     );
